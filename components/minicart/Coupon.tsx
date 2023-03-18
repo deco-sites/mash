@@ -7,7 +7,7 @@ import Text from "$store/components/ui/Text.tsx";
 function Coupon() {
   const { cart, loading, addCouponsToCart } = useCart();
   const ref = useRef<HTMLInputElement>(null);
-  const displayInput = useSignal(false);
+  const displayInput = useSignal(true);
   const coupon = cart.value?.marketingData?.coupon;
 
   const toggleInput = () => {
@@ -21,40 +21,30 @@ function Coupon() {
 
     if (typeof text === "string") {
       addCouponsToCart({ text });
-      toggleInput();
     }
   };
 
   return (
     <div class="flex justify-between items-center px-4">
-      <Text variant="caption">Cupom de desconto</Text>
-      {!displayInput.value && (
-        <Button
-          class="underline text-caption font-caption"
-          onClick={toggleInput}
-          variant="icon"
-        >
-          {coupon || "Adicionar"}
-        </Button>
-      )}
       {displayInput.value && (
-        <form class="flex gap-2">
+        <form class="flex gap-2 w-full border-1">
           <input
             id="coupon"
             name="coupon"
             ref={ref}
-            class="w-[140px] border rounded p-2 text-caption font-caption"
+            class="w-full p-2 text-caption font-caption focus:outline-none"
             type="text"
             value={coupon ?? ""}
-            placeholder={"Coupom"}
+            placeholder={"Insira seu melhor cupom de desconto"}
           />
           <Button
             type="submit"
             htmlFor="coupon"
+            variant="coupon"
             loading={loading.value}
             onClick={applyCouponToCart}
           >
-            Ok
+            Aplicar
           </Button>
         </form>
       )}

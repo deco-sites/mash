@@ -52,7 +52,7 @@ const options: Omit<Options, "selfURL"> = {
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
-        "price": "#8C3D3D",
+        "price": "#000",
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
@@ -87,6 +87,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "400",
         "list-price": "400",
+        "important": "800"
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

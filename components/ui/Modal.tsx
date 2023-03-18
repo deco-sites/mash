@@ -70,7 +70,7 @@ const Modal = ({
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
       <section class="pt-6 h-full bg-default flex flex-col">
-        <header class={`flex px-4 justify-between items-center pb-6 ${mode === "center" ? "flex-row-reverse" : ""}`}>
+        <header class={`flex px-4 justify-between items-center pb-6 ${mode === "center" ? "flex-row-reverse" : ""} ${mode === "sidebar-right" ? "justify-start" : ""}`}>
           <Button variant="icon" onClick={onClose}>
             <Icon id="XMark" width={40} height={40} strokeWidth={1} />
           </Button>
