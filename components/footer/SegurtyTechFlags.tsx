@@ -1,5 +1,7 @@
+import Image from "deco-sites/std/components/Image.tsx";
 import Text from "../ui/Text.tsx";
 import { Flag } from "./PaymentFlags.tsx";
+
 
 export interface Props {
     title?: string;
@@ -19,7 +21,17 @@ const SegurtyTechFlags = ({ flags, title }: Props) => {
                         {
                             flag.text && <p class="text-xs">{flag.text}</p>
                         }
-                        <img class="h-[fit-content]" src={flag.image} alt={flag.alt} />
+                        <Image
+                            src={flag.image}
+                            sizes="(max-width: 640px) 50vw, 20vw"
+                            class="max-w-[fit-content]"
+                            width={flag.width}
+                            height={flag.height}
+                            loading="lazy"
+                            decoding="async"
+                            fetchPriority="high"
+                            alt={flag.alt}
+                        />
                     </section>
                     
                 )
