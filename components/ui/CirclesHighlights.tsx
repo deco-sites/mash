@@ -18,7 +18,7 @@ export interface Props {
 
 function Highlights({ highlights = [], title }: Props) {
   return (
-    <Container class="grid grid-cols-1 grid-rows-[48px_1fr] py-10">
+    <section class="grid grid-cols-1 grid-rows-[48px_1fr] py-10">
       <h2 class="ml-4 uppercase">
         <Text variant="heading-2">{title}</Text>
       </h2>
@@ -43,7 +43,7 @@ function Highlights({ highlights = [], title }: Props) {
           </a>
         ))}
       </Slider>
-    </Container>
+    </section>
   );
 }
 

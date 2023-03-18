@@ -103,7 +103,6 @@ function Footer({ sections = [], cardsFooter = [], links = [], flags = [], flags
   return (
     <footer class="w-full bg-footer flex flex-col">
       <div>
-        <Container class="max-w-full w-full flex flex-col">
           <Newsletter text={TextNewsletter}/>
 
           <FooterContainer>
@@ -177,11 +176,9 @@ function Footer({ sections = [], cardsFooter = [], links = [], flags = [], flags
               </section>
             </ul>
           </FooterContainer>
-        </Container>
       </div>
 
       <div>
-        <Container class="w-full">
           <FooterContainer class="max-w-[1205px] mx-auto py-[20px]">
             <Text
               class="flex items-center gap-1 text(black [8px]) leading-[16px]"
@@ -191,7 +188,6 @@ function Footer({ sections = [], cardsFooter = [], links = [], flags = [], flags
               {text}
             </Text>
           </FooterContainer>
-        </Container>
       </div>
     </footer>
   );
