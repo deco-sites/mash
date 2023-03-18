@@ -17,7 +17,7 @@ export interface BannerProps {
 
 function SingleBanner({ desktop, mobile, alt, action, lcp }: { desktop: LiveImage; mobile: LiveImage; alt: string; action?: { href: string; label: string; }; lcp?: boolean }) {
   return (
-    <div class="min-w-[100vw] overflow-y-hidden">
+    <div class="overflow-y-hidden">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
         <Source
