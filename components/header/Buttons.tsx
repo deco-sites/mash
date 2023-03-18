@@ -4,6 +4,7 @@ import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
 import SearchIcon from '$store/components/icons/SearchIcon.tsx';
 import CartIcon from "$store/components/icons/CartIcon.tsx";
+import UserIcon from "$store/components/icons/UserIcon.tsx";
 
 function SearchButton() {
   const { displayMenu } = useUI();
@@ -62,7 +63,25 @@ function CartButton() {
   );
 }
 
-function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" }) {
+
+function LoginButton() {
+  const { displayLogin } = useUI();
+
+  return (
+    <Button
+      variant="icon"
+      aria-label="open login"
+      onClick={() => {
+        displayLogin.value = true;
+      }}
+    >
+      <UserIcon />
+    </Button>
+  );
+}
+
+
+function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" | "login"}) {
   if (variant === "cart") {
     return <CartButton />;
   }
@@ -73,6 +92,10 @@ function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" }) {
 
   if (variant === "menu") {
     return <MenuButton />;
+  }
+
+  if (variant === "login") {
+    return <LoginButton />;
   }
 
   return null;
