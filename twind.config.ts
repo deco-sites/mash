@@ -87,6 +87,7 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "600",
         "list-price": "400",
+        "important": "800"
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

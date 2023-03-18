@@ -31,31 +31,31 @@ function CartItem({ index }: Props) {
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
+        width={216}
         height={150}
-        class="object-cover object-center"
+        class="w-20 h-20"
       />
       <div class="flex-grow">
-        <Text variant="body">
+        <span class="text-sm font-normal">
           {name}
-        </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="subdued" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
-          <Text tone="price" variant="caption">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </Text>
-        </div>
-        <div class="mt-6 max-w-min">
-          <QuantitySelector
-            disabled={loading.value || isGift}
-            quantity={quantity}
-            onChange={(quantity) =>
-              updateItems({ orderItems: [{ index, quantity }] })}
-          />
+        </span>
+        <div class="flex items-center">
+          <div class="mt-2 max-w-min">
+            <QuantitySelector
+              disabled={loading.value || isGift}
+              quantity={quantity}
+              onChange={(quantity) =>
+                updateItems({ orderItems: [{ index, quantity }] })}
+            />
+          </div>
+          <div class="flex items-center gap-2 ml-3">
+            <span class="text-sm font-light text-black">X</span>
+            <Text tone="price" variant="important">
+              {isGift
+                ? "Grátis"
+                : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+            </Text>
+          </div>
         </div>
       </div>
       <Button
