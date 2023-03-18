@@ -5,6 +5,8 @@
  * function.
  */
 import type { Options } from "$fresh/plugins/twind.ts";
+import { asset } from "$fresh/runtime.ts";
+
 
 const gridCols = ([arg]: string[]) => {
   const template = Number.isInteger(Number(arg))
@@ -37,7 +39,8 @@ const options: Omit<Options, "selfURL"> = {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
         "badge": "#8C3D3D", // shopping cart tem isso tambem
-        "footer": "#003232",
+        "footer": "#FFFFFF",
+        "newsletter": "#F7F7F7",
         "interactive": "#161616",
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",

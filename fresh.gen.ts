@@ -673,8 +673,199 @@ const manifest: DecoManifest = {
             },
             "title": "Sections",
           },
+          "cardsFooter": {
+            "type": "array",
+            "items": {
+              "title": "CardFooter",
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "text": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Text",
+                },
+              },
+              "required": [
+                "title",
+              ],
+            },
+            "title": "Cards Footer",
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "title": "Link",
+              "type": "object",
+              "properties": {
+                "image": {
+                  "title": "Image",
+                  "type": "object",
+                  "properties": {
+                    "src": {
+                      "format": "image-uri",
+                      "type": "string",
+                      "title": "Src",
+                    },
+                    "alt": {
+                      "type": "string",
+                      "title": "Alt",
+                    },
+                  },
+                  "required": [
+                    "src",
+                    "alt",
+                  ],
+                },
+                "href": {
+                  "type": "string",
+                  "title": "Href",
+                },
+              },
+              "required": [
+                "image",
+                "href",
+              ],
+            },
+            "title": "Links",
+          },
+          "titlePaymentFlags": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Title Payment Flags",
+          },
+          "flags": {
+            "type": "array",
+            "items": {
+              "title": "Flag",
+              "type": "object",
+              "properties": {
+                "image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Image",
+                },
+                "alt": {
+                  "type": "string",
+                  "title": "Alt",
+                },
+                "text": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Text",
+                },
+              },
+              "required": [
+                "image",
+                "alt",
+              ],
+            },
+            "title": "Flags",
+          },
+          "titleSegurityTechFlags": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Title Segurity Tech Flags",
+          },
+          "flagsTS": {
+            "type": "array",
+            "items": {
+              "title": "Flag",
+              "type": "object",
+              "properties": {
+                "image": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Image",
+                },
+                "alt": {
+                  "type": "string",
+                  "title": "Alt",
+                },
+                "text": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Text",
+                },
+              },
+              "required": [
+                "image",
+                "alt",
+              ],
+            },
+            "title": "Flags T S",
+          },
+          "TextNewsletter": {
+            "title": " Text Newsletter",
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Title newsletter",
+                "description": "text to be displayed in the newsletter title",
+                "default": "NÃO PARE DE MUDAR",
+              },
+              "text": {
+                "type": "string",
+                "title": "Text newsletter",
+                "description": "text to be displayed in the newsletter text",
+                "default": "E RECEBA AS NOVIDADES MASH",
+              },
+              "placeholderName": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Placeholder name",
+                "description": "placeholder to be displayed in the name input",
+                "default": "Seu Nome",
+              },
+              "placeholderEmail": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Placeholder email",
+                "description": "placeholder to be displayed in the email input",
+                "default": "Seu E-mail",
+              },
+              "textButton": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Text button",
+                "description": "text to be displayed in the button",
+                "default": "Cadastrar",
+              },
+            },
+            "required": [
+              "title",
+              "text",
+            ],
+          },
+          "text": {
+            "type": "string",
+            "title": "Text",
+          },
         },
-        "required": [],
+        "required": [
+          "TextNewsletter",
+          "text",
+        ],
       },
       "outputSchema": null,
     },
