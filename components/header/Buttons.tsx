@@ -67,7 +67,6 @@ function CartButton() {
 function LoginButton() {
   const { displayLogin } = useUI();
 
-  //(lfroes) TODO: CREATE LOGIN MODAL
   return (
     <Button
       variant="icon"

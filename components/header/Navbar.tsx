@@ -72,14 +72,7 @@ function Navbar({ items, searchbar, logo }: {
           </div>
           <div class="flex-none w-2/3 flex items-center justify-end gap-2">
             <Searchbar {...searchbar} variant="desktop" />
-            <Button
-              as="a"
-              variant="icon"
-              href="/login"
-              aria-label="Log in"
-            >
-              <UserIcon />
-            </Button>
+            <HeaderButton variant="login" />
             <HeaderButton variant="cart" />
           </div>
         </div>
