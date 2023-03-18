@@ -999,6 +999,21 @@ const manifest: DecoManifest = {
                   },
                   "required": [],
                 },
+                "specialLink": {
+                  "type": [
+                    "boolean",
+                    "null",
+                  ],
+                  "title": "Special Link",
+                  "description": "Use it for promotions or special links",
+                },
+                "specialLinkColor": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Special Link Color",
+                },
               },
               "required": [
                 "label",
@@ -1008,6 +1023,12 @@ const manifest: DecoManifest = {
             "title": "Navigation items",
             "description":
               "Navigation items used both on mobile and desktop menus",
+          },
+          "logo": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Store Logo",
+            "description": "Insert your store logo",
           },
           "products": {
             "$id": "1f15a836acd2ecbefef6eaf34ebcff98e39811f3",
@@ -1032,6 +1053,7 @@ const manifest: DecoManifest = {
         },
         "required": [
           "alerts",
+          "logo",
         ],
       },
       "outputSchema": null,
