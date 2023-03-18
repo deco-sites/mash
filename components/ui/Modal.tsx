@@ -20,12 +20,13 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
   mode?: "sidebar-right" | "sidebar-left" | "center";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
+  showSearch?: boolean;
 };
 
 const styles = {
   "sidebar-right": "animate-slide-left sm:ml-auto",
   "sidebar-left": "animate-slide-right",
-  center: "",
+  center: "animate-slide-bottom",
 };
 
 const Modal = ({
@@ -35,6 +36,7 @@ const Modal = ({
   onClose,
   children,
   loading,
+  showSearch,
   ...props
 }: Props) => {
   const lazy = useSignal(false);
@@ -61,20 +63,28 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full backdrop  ${variant} ${
+      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full  backdrop ${mode === "center" ? "h-[50%] max-w-[90%]  m-auto" : "max-h-full h-full"}  ${variant} ${
         props.class ?? ""
       }`}
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
       <section class="pt-6 h-full bg-default flex flex-col">
-        <header class="flex px-4 justify-between items-center pb-6">
+        <header class={`flex px-4 justify-between items-center pb-6 ${mode === "center" ? "flex-row-reverse" : ""}`}>
           <Button variant="icon" onClick={onClose}>
             <Icon id="XMark" width={40} height={40} strokeWidth={1} />
           </Button>
-          <section class="w-4/5">
-            <Searchbar placeholder="Buscar" />
-          </section>
+          {showSearch
+            ? (
+              <section class="w-4/5">
+                <Searchbar placeholder="Buscar" />
+              </section>
+            )
+            : (
+              <h1 class={`${mode === "center" ? "ml-[40%]" : ""} uppercase font-extralight`}>
+                <Text variant="heading-2">{title}</Text>
+              </h1>
+            )}
         </header>
         <div class="overflow-y-auto h-full flex flex-col">
           {loading === "lazy" ? lazy.value && children : children}

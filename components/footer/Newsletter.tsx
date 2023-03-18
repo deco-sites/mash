@@ -60,13 +60,13 @@ function Newsletter({ text }: Props) {
           />
           <section class="flex">
             <label name="gender_radio" class="flex items-center gap-1 pr-[10px]">
-              <input type="radio" name="gender_radio"/>
-              <span ></span>
+              <input id="gender_radio" type="radio" name="gender_radio" class="appearance-none bg-white h-[21px] w-[21px] border(1 [#EBEBEB])"/>
+              
               M
             </label>
             <label name="gender_radio" class="flex items-center gap-1 pr-[10px] md:pr-[50px]">
-              <input type="radio" name="gender_radio"/>
-              <span></span>
+              <input id="gender_radio" type="radio" name="gender_radio" class="appearance-none bg-white h-[21px] w-[21px] border(1 [#EBEBEB])"/>
+              
               F
             </label>
           </section>
@@ -78,7 +78,7 @@ function Newsletter({ text }: Props) {
           </button>
         </section>
         <label name="newsletter-concordo" class="flex items-center">
-          <input type="checkbox" name="newsletter-concordo" class="mr-[10px] appearance-none bg-white checked:bg-black border(1 [#EBEBEB]) h-[15px] w-[15px]"/>
+          <input id="newsletter-concordo" type="checkbox" name="newsletter-concordo" class="mr-[10px] appearance-none bg-white border(1 [#EBEBEB]) h-[15px] w-[15px]"/>
           <span class="max-w-[300px] md:max-w-full">Li e concordo com a política e termos de privacidade.</span>
         </label>
       </form>

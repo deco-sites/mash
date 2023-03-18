@@ -1,4 +1,5 @@
-import type { Image } from "deco-sites/std/components/types.ts";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 import Text from "../ui/Text.tsx";
 
 export interface Props {
@@ -7,8 +8,10 @@ export interface Props {
 }
 
 export interface Flag {
-    image: Image;
+    image: LiveImage;
     alt: string;
+    width: number;
+    height: number;
     text?: string;
 }
 
@@ -21,7 +24,17 @@ const PaymentFlags = ({ flags, title }: Props) => {
             <section class="flex items-center flex-wrap gap-6 pt-2">
             {flags.map((flag: Flag) => {
                 return (
-                    <img class="h-[fit-content]" src={flag.image} alt={flag.alt} />
+                    <Image
+                        src={flag.image}
+                        class=""
+                        sizes="(max-width: 640px) 50vw, 20vw"
+                        width={flag.width}
+                        height={flag.height}
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="high"
+                        alt={flag.alt}
+                    />
                 )
             })}
             </section>
