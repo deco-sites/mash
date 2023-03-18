@@ -2,19 +2,21 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
+import SearchIcon from '$store/components/icons/SearchIcon.tsx';
+import CartIcon from "$store/components/icons/CartIcon.tsx";
 
 function SearchButton() {
-  const { displaySearchbar } = useUI();
+  const { displayMenu } = useUI();
 
   return (
     <Button
       variant="icon"
       aria-label="search icon button"
       onClick={() => {
-        displaySearchbar.value = !displaySearchbar.peek();
+        displayMenu.value = !displayMenu.peek();
       }}
     >
-      <Icon id="MagnifyingGlass" width={20} height={20} strokeWidth={0.1} />
+      <SearchIcon />
     </Button>
   );
 }
@@ -30,7 +32,7 @@ function MenuButton() {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon id="Bars3" width={40} height={40} strokeWidth={0.1} />
     </Button>
   );
 }
@@ -50,7 +52,7 @@ function CartButton() {
         displayCart.value = true;
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+      <CartIcon />
       {totalItems && (
         <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
           {totalItems}
