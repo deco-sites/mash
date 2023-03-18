@@ -38,6 +38,7 @@ const options: Omit<Options, "selfURL"> = {
         "default": "#FFFFFF",
         "header": "#FFFFFF",
         "mash-grey": "#f7f7f7",
+        "intense": "#db0005",
         "badge": "#8C3D3D", // shopping cart tem isso tambem
         "footer": "#FFFFFF",
         "newsletter": "#F7F7F7",
@@ -62,7 +63,7 @@ const options: Omit<Options, "selfURL"> = {
         "interactive": "#161616",
         "focus": "#3379EF",
         "positive": "#1A7346",
-        "critical": "#B44125",
+        "critical": "#db0005",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],

@@ -30,7 +30,7 @@ function NavItem({ item }: { item: INavItem }) {
       {children && children.length > 0 &&
         (
           <div
-            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex items-start justify-center gap-6 border-b-4 border-default border-[#db0005] w-screen mt-[${headerHeight}]`}
+            class={`fixed invisible hover:visible group-hover:visible bg-default z-50 flex items-start justify-center gap-6 border-b-4 border-default border-critical w-screen mt-[${headerHeight}]`}
             style={{ top: "0px", left: "0px" }}
           >
             {image?.src && (
@@ -43,16 +43,16 @@ function NavItem({ item }: { item: INavItem }) {
                 loading="lazy"
               />
             )}
-            <ul class="flex items-start justify-center gap-6">
+            <ul class="flex items-start justify-start gap-6 max-w-[1220px] mx-auto w-full">
               {children.map((node) => (
-                <li class="p-6">
+                <li class="px-6 my-[20px]">
                   <Text variant="menu" class="uppercase font-bold text-sm">
                     {node.label}
                   </Text>
 
                   <ul class="flex flex-col gap-1 mt-4">
                     {node.children?.map((leaf) => (
-                      <li>
+                      <li class="pb-[15px]">
                         <a class="hover:underline uppercase" href={leaf.href}>
                           <Text variant="caption">{leaf.label}</Text>
                         </a>
