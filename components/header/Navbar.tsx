@@ -39,7 +39,7 @@ function Navbar({ items, searchbar, logo }: {
             loading="eager"
             decoding="async"
             fetchPriority="high"
-            preload
+            alt="Logo da Mash"
           />
         </a>
 
@@ -74,7 +74,6 @@ function Navbar({ items, searchbar, logo }: {
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
-                preload
               />
             </a>
           </div>
