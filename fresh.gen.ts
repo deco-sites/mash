@@ -771,10 +771,20 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "title": "Alt",
                     },
+                    "width": {
+                      "type": "number",
+                      "title": "Width",
+                    },
+                    "height": {
+                      "type": "number",
+                      "title": "Height",
+                    },
                   },
                   "required": [
                     "src",
                     "alt",
+                    "width",
+                    "height",
                   ],
                 },
                 "href": {
@@ -811,6 +821,14 @@ const manifest: DecoManifest = {
                   "type": "string",
                   "title": "Alt",
                 },
+                "width": {
+                  "type": "number",
+                  "title": "Width",
+                },
+                "height": {
+                  "type": "number",
+                  "title": "Height",
+                },
                 "text": {
                   "type": [
                     "string",
@@ -822,6 +840,8 @@ const manifest: DecoManifest = {
               "required": [
                 "image",
                 "alt",
+                "width",
+                "height",
               ],
             },
             "title": "Flags",
@@ -848,6 +868,14 @@ const manifest: DecoManifest = {
                   "type": "string",
                   "title": "Alt",
                 },
+                "width": {
+                  "type": "number",
+                  "title": "Width",
+                },
+                "height": {
+                  "type": "number",
+                  "title": "Height",
+                },
                 "text": {
                   "type": [
                     "string",
@@ -859,6 +887,8 @@ const manifest: DecoManifest = {
               "required": [
                 "image",
                 "alt",
+                "width",
+                "height",
               ],
             },
             "title": "Flags T S",

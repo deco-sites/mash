@@ -1,7 +1,7 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Container from "$store/components/ui/Container.tsx";
-import type { Image } from "deco-sites/std/components/types.ts";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 import Newsletter, { TextNewsletter } from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
@@ -81,8 +81,10 @@ function CardFooter(
 
 export interface Link {
   image: {
-      src: Image;
+      src: LiveImage;
       alt: string;
+      width: number;
+      height: number;
   }
   href: string;
 }
