@@ -4,6 +4,7 @@ import type { EditableProps as SearchbarProps } from "$store/components/search/S
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
+import { lazy, Suspense } from "preact/compat";
 
 import Alert from "./Alert.tsx";
 import Navbar from "./Navbar.tsx";
@@ -24,6 +25,12 @@ export interface NavItem {
     src?: Image;
     alt?: string;
   };
+    /**
+   * @title Special Link
+   * @description Use it for promotions or special links
+   */
+  specialLink?: boolean;
+  specialLinkColor?: string;
 }
 
 export interface Props {
@@ -35,7 +42,11 @@ export interface Props {
    * @description Navigation items used both on mobile and desktop menus
    */
   navItems?: NavItem[];
-
+  /**
+   * @title Store Logo
+   * @description Insert your store logo
+   */
+  logo: Image;
   /**
    * @title Product suggestions
    * @description Product suggestions displayed on search
@@ -61,6 +72,7 @@ function Header(
     navItems = [],
     suggestions,
     configVTEX,
+    logo
   }: Props,
 ) {
   const searchbar = { ..._searchbar, products, suggestions, configVTEX };
@@ -68,7 +80,7 @@ function Header(
     <header class={`h-[${headerHeight}]`}>
       <div class="bg-default fixed w-full z-50">
         <Alert alerts={alerts} />
-        <Navbar items={navItems} searchbar={searchbar} />
+        <Navbar items={navItems} searchbar={searchbar} logo={logo} />
       </div>
 
       <Modals

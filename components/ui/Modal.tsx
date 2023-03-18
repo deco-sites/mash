@@ -6,6 +6,7 @@ import { useSignal } from "@preact/signals";
 import type { JSX } from "preact";
 
 import Icon from "./Icon.tsx";
+import Searchbar from "../search/Searchbar.tsx";
 
 // Lazy load a <dialog> polyfill.
 if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
@@ -60,20 +61,20 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full backdrop ${variant} ${
+      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full max-h-full h-full backdrop  ${variant} ${
         props.class ?? ""
       }`}
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
       <section class="pt-6 h-full bg-default flex flex-col">
-        <header class="flex px-4 justify-between items-center pb-6 border-b-1 border-default">
-          <h1>
-            <Text variant="heading-2">{title}</Text>
-          </h1>
+        <header class="flex px-4 justify-between items-center pb-6">
           <Button variant="icon" onClick={onClose}>
-            <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+            <Icon id="XMark" width={40} height={40} strokeWidth={1} />
           </Button>
+          <section class="w-4/5">
+            <Searchbar placeholder="Buscar" />
+          </section>
         </header>
         <div class="overflow-y-auto h-full flex flex-col">
           {loading === "lazy" ? lazy.value && children : children}
