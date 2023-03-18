@@ -52,7 +52,7 @@ const options: Omit<Options, "selfURL"> = {
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
-        "price": "#000",
+        "price": "#302323",
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
@@ -75,7 +75,7 @@ const options: Omit<Options, "selfURL"> = {
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
-        "caption": ["13px", "16px"],
+        "caption": ["16px", "20px"],
         "list-price": ["10px", "20px"],
       },
       fontWeight: {
@@ -85,7 +85,7 @@ const options: Omit<Options, "selfURL"> = {
         "menu": "400",
         "button": "700",
         "body": "400",
-        "caption": "400",
+        "caption": "600",
         "list-price": "400",
         "important": "800"
       },
