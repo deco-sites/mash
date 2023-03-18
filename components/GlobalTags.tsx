@@ -115,6 +115,13 @@ function GlobalTags() {
           #summary-menu:after {
             content: "+";
           }
+
+          #gender_radio:checked, #newsletter-concordo:checked {
+            background-color: #000;
+            background-image: url(${asset("/checkbox.png")});
+            background-repeat: no-repeat;
+            background-position: center;
+          }
       `,
         }}
       />
