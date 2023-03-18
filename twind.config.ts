@@ -5,7 +5,6 @@
  * function.
  */
 import type { Options } from "$fresh/plugins/twind.ts";
-import { asset } from "$fresh/runtime.ts";
 
 
 const gridCols = ([arg]: string[]) => {
