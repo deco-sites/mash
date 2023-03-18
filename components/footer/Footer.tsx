@@ -1,9 +1,13 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Container from "$store/components/ui/Container.tsx";
+import type { Image } from "deco-sites/std/components/types.ts";
 
-import Newsletter from "./Newsletter.tsx";
+import Newsletter, { TextNewsletter } from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
+import SocialFooter from "./SocialFooter.tsx";
+import PaymentFlags, { Flag } from "./PaymentFlags.tsx";
+import SegurtyTechFlags from "./SegurtyTechFlags.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 export type StringItem = {
@@ -18,13 +22,18 @@ export type Section = {
   children: Item[];
 };
 
+export type CardFooter = {
+  title: string;
+  text?: string;
+};
+
 const isIcon = (item: Item): item is IconItem =>
   // deno-lint-ignore no-explicit-any
   typeof (item as any)?.icon === "string";
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <Text variant="caption" tone="default-inverse">
+    <Text variant="caption" tone="default-inverse" class="text-black">
       {isIcon(item)
         ? (
           <div class="border-default border-1 py-1.5 px-2.5">
@@ -54,26 +63,65 @@ function FooterContainer(
   return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
 }
 
-export interface Props {
-  sections?: Section[];
+function CardFooter(
+  { class: _class = "", card }: {
+    class?: string;
+    card: CardFooter;
+  },
+) {
+  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>
+    <Text variant="body" tone="default-inverse" class="text([#000] xs) font-semibold">
+      {card.title}
+    </Text>
+    <Text variant="body" tone="default-inverse" class="text([#000] xs)">
+      {card.text}
+    </Text>
+  </div>;
 }
 
-function Footer({ sections = [] }: Props) {
+export interface Link {
+  image: {
+      src: Image;
+      alt: string;
+  }
+  href: string;
+}
+
+export interface Props {
+  sections?: Section[];
+  cardsFooter?: CardFooter[];
+  links?: Link[];
+  titlePaymentFlags?: string;
+  flags?: Flag[];
+  titleSegurityTechFlags?: string;
+  flagsTS?: Flag[];
+  TextNewsletter: TextNewsletter;
+  text: string;
+}
+
+function Footer({ sections = [], cardsFooter = [], links = [], flags = [], flagsTS = [], TextNewsletter, titlePaymentFlags, titleSegurityTechFlags, text}: Props) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
+    <footer class="w-full bg-footer flex flex-col">
       <div>
-        <Container class="w-full flex flex-col divide-y-1 divide-default">
+        <Container class="max-w-full w-full flex flex-col">
+          <Newsletter text={TextNewsletter}/>
+
           <FooterContainer>
-            <Newsletter />
+            <section class="flex justify-between max-w-[950px] mx-auto flex-wrap">
+              {cardsFooter.map((card) => <CardFooter class="flex flex-col gap-[11px] w-[440px]" card={card}/>)}
+            </section>
           </FooterContainer>
+
+          <SocialFooter links={links}/>
 
           <FooterContainer>
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
+            <ul class="hidden sm:flex flex-row justify-between max-w-[1205px] mx-auto">
+              <section class="flex justify-evenly w-full">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" tone="default-inverse">
+                    <Text variant="heading-3" tone="default-inverse" class="text-black">
                       {section.label}
                     </Text>
 
@@ -91,15 +139,20 @@ function Footer({ sections = [] }: Props) {
                   </div>
                 </li>
               ))}
+              </section>
+              <section class="max-w-[300px] w-full flex flex-col gap-10">
+                <PaymentFlags flags={flags} title={titlePaymentFlags} />
+                <SegurtyTechFlags flags={flagsTS} title={titleSegurityTechFlags} />
+              </section>
             </ul>
 
             {/* Mobile view */}
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
               {sections.map((section) => (
                 <li>
-                  <Text variant="body" tone="default-inverse">
-                    <details>
-                      <summary>
+                  <Text variant="body" tone="default-inverse" class="text-black">
+                    <details id="summary-details">
+                      <summary id="summary-menu" class="w-full px-[10px] flex justify-between">
                         {section.label}
                       </summary>
 
@@ -118,6 +171,10 @@ function Footer({ sections = [] }: Props) {
                   </Text>
                 </li>
               ))}
+              <section class="w-full flex flex-col gap-10">
+                <PaymentFlags flags={flags} title={titlePaymentFlags} />
+                <SegurtyTechFlags flags={flagsTS} title={titleSegurityTechFlags} />
+              </section>
             </ul>
           </FooterContainer>
         </Container>
@@ -125,55 +182,14 @@ function Footer({ sections = [] }: Props) {
 
       <div>
         <Container class="w-full">
-          <FooterContainer class="flex justify-between w-full">
+          <FooterContainer class="max-w-[1205px] mx-auto py-[20px]">
             <Text
-              class="flex items-center gap-1"
+              class="flex items-center gap-1 text(black [8px]) leading-[16px]"
               variant="body"
               tone="default-inverse"
             >
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
+              {text}
             </Text>
-
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
-              </li>
-            </ul>
           </FooterContainer>
         </Container>
       </div>
