@@ -8,7 +8,7 @@ export interface Props {
   items: INavItem[];
 }
 
-function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
+function MenuItem({ item, level = 0}: { item: INavItem; level?: number }) {
   const open = useSignal(false);
   const hasChildren = Array.isArray(item.children) && item.children.length > 0;
 

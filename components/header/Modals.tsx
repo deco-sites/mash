@@ -77,6 +77,22 @@ function Modals({ menu, searchbar }: Props) {
           <Login />
         </Suspense>
       </Modal>
+
+      
+      <Modal
+        title="Acesso"
+        mode="center"
+        loading="lazy"
+        open={displayLogin.value}
+        onClose={() => {
+          displayLogin.value = false;
+        }}
+      >
+        <Suspense fallback={<Loading />}>
+          <Login />
+        </Suspense>
+      </Modal>
+
     </>
   );
 }

@@ -70,7 +70,7 @@ export default function useAutocomplete(
     // TODO: create a singleton
     vtexClient = createClient({
       ...configVTEX,
-      baseUrl: "ttps://mash.vtexcommercestable.com.br",
+      baseUrl: "https://vtex-search-proxy.global.ssl.fastly.net/v2/mash/",
     });
   }
 
