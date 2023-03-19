@@ -11,13 +11,7 @@
 
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
-import { useEffect, useRef } from "preact/compat";
-import Button from "$store/components/ui/Button.tsx";
-import { useUI } from "$store/sdk/useUI.ts";
-import SearchIcon from "$store/components/icons/SearchIcon.tsx";
-import  useAutoComplete from "$store/sdk/useAutoComplete.ts";
-
-
+import SearchLegacy from "$store/islands/SearchLegacy.tsx";
 
 // Editable props
 export interface EditableProps {
@@ -69,40 +63,16 @@ function Searchbar({
   configVTEX,
   variant = "mobile",
 }: Props) {
-  const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setSearch, suggestions } = useAutoComplete({
-    configVTEX,
-  });
   return (
-    <div class="flex flex-col p-4 md:(py-6 w-2/3) ">
-      <div class="flex gap-4">
-        <form
-          id="searchbar"
-          action={action}
-          class="flex-grow flex gap-3 px-3 py-2 bg-mash-grey"
-        >
-          <input
-            ref={searchInputRef}
-            id="search-input"
-            class="flex-grow outline-none  bg-mash-grey"
-            name={name}
-            defaultValue={query}
-            placeholder={placeholder}
-            role="combobox"
-            aria-controls="search-suggestion"
-            autocomplete="off"
-          />
-          <Button
-            variant="icon"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-          >
-            <SearchIcon />
-          </Button>
-        </form>
-      </div>
-    </div>
+    <SearchLegacy
+      placeholder={placeholder}
+      name={name}
+      query={query}
+      configVTEX={configVTEX}
+      action={action}
+      products={products}
+      variant={variant}
+    />
   );
 }
 

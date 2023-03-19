@@ -39,13 +39,22 @@ function Sort() {
       name="sort"
       class="group h-[40px] m-2 text-button font-button cursor-pointer outline-none w-[200px]"
     >
-      <section id="MenuOrdenar" class="h-full flex justify-center items-center group-hover:(bg-black text-white) transition">
-        <Icon id="MenuOrdenar" width={20} height={16} strokeWidth={0.1}/>
+      <section
+        id="MenuOrdenar"
+        class="h-full flex justify-center items-center group-hover:(bg-black text-white) transition"
+      >
+        <Icon id="MenuOrdenar" width={20} height={16} strokeWidth={0.1} />
         <span>Ordenar</span>
       </section>
       <section class="invisible group-hover:visible absolute z-10 bg-white w-[200px] py-[15px] px-[10px]">
         {options.map(({ value, label }) => (
-          <section class="my-2" key={value} onClick={() => {applySort(value)}}>
+          <section
+            class="my-2"
+            key={value}
+            onClick={() => {
+              applySort(value);
+            }}
+          >
             <span class="py-2 text(xs black) font-body">{label}</span>
           </section>
         ))}

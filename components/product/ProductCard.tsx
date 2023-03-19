@@ -38,9 +38,10 @@ interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
+  search?: boolean;
 }
 
-function ProductCard({ product, preload }: Props) {
+function ProductCard({ product, preload, search }: Props) {
   const {
     url,
     productID,
@@ -54,35 +55,46 @@ function ProductCard({ product, preload }: Props) {
   return (
     <div
       id={`product-card-${productID}`}
-      class="w-full group"
+      class={`w-full group ${search ? "flex" : ""}`}
     >
-      <a href={url} aria-label="product link">
-      <div class="relative w-full group">
-      <Image
-        src={front.url!}
-        alt={front.alternateName}
-        width={200}
-        height={279}
-        class="rounded w-full group-hover:hidden"
-        preload={preload}
-        loading={preload ? "eager" : "lazy"}
-        sizes="(max-width: 640px) 50vw, 20vw"
-      />
-      <Image
-        src={front.url!}
-        alt={front.alternateName}
-        width={200}
-        height={279}
-        class="rounded w-full hidden group-hover:block"
-        sizes="(max-width: 640px) 50vw, 20vw"
-      />
-      {seller && (
-        <div class="w-full bg-gray-500 relative">
-          {/* <Sizes {...product} /> */}
-          <a href={product.url} class="bg-[#24b26d] text-white px-4 py-2 absolute bottom-0 left-0 right-0 mx-auto mb-4 opacity-0 transform translate-y-full transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 text-center">ADICIONAR A SACOLA</a>
+      <a
+        href={url}
+        aria-label="product link"
+        class={`${search ? "flex items-center" : ""}`}
+      >
+        <div class="relative w-full group">
+          <Image
+            src={front.url!}
+            alt={front.alternateName}
+            width={961}
+            height={961}
+            class={`rounded w-full  ${
+              search ? "w-[80px] h-[80px]" : "group-hover:hidden"
+            }`}
+            preload={preload}
+            loading={preload ? "eager" : "lazy"}
+            sizes="(max-width: 640px) 50vw, 20vw"
+          />
+          <Image
+            src={front.url!}
+            alt={front.alternateName}
+            width={961}
+            height={961}
+            class={`rounded w-full hidden ${search ? "" : "group-hover:block"}`}
+            sizes="(max-width: 640px) 50vw, 20vw"
+          />
+          {seller && !search && (
+            <div class="w-full bg-gray-500 relative">
+              {/* <Sizes {...product} /> */}
+              <a
+                href={product.url}
+                class="bg-[#24b26d] text-white px-4 py-2 absolute bottom-0 left-0 right-0 mx-auto mb-4 opacity-0 transform translate-y-full transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 text-center"
+              >
+                ADICIONAR A SACOLA
+              </a>
+            </div>
+          )}
         </div>
-      )}
-    </div>
         <div class="flex flex-col gap-1 py-2">
           <Text
             class="overflow-hidden overflow-ellipsis whitespace-nowrap"

@@ -26,12 +26,17 @@ function Controls({ page }: { page: ProductListingPage }) {
 
   return (
     <section class="w-full md:h-[112px] md:border-y-1">
-        <section class="max-w-[1280px] h-full mx-auto flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 sm:flex-row">
+      <section class="max-w-[1280px] h-full mx-auto flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 sm:flex-row">
         <section class="w-full">
           <div class="flex flex-row items-center sm:p-0">
-            <Breadcrumb itemListElement={breadcrumb?.itemListElement} itemList={itemsList} />
+            <Breadcrumb
+              itemListElement={breadcrumb?.itemListElement}
+              itemList={itemsList}
+            />
           </div>
-          <span class="block md:hidden  uppercase text([18px] black) mt-[15px] mr-[5px] font-semibold">{pageTitle}</span>
+          <span class="block md:hidden  uppercase text([18px] black) mt-[15px] mr-[5px] font-semibold">
+            {pageTitle}
+          </span>
           <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
             <section class="block lg:hidden">
               <Button
@@ -45,7 +50,9 @@ function Controls({ page }: { page: ProductListingPage }) {
               </Button>
             </section>
             <section class="hidden lg:flex w-[fit-content] items-center">
-              <span class="uppercase text([18px] black) mr-[5px] font-semibold">{pageTitle}</span>
+              <span class="uppercase text([18px] black) mr-[5px] font-semibold">
+                {pageTitle}
+              </span>
               <Filters filters={filters} />
             </section>
             <Sort />

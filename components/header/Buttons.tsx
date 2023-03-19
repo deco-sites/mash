@@ -2,7 +2,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/commerce/vtex/hooks/useCart.ts";
-import SearchIcon from '$store/components/icons/SearchIcon.tsx';
+import SearchIcon from "$store/components/icons/SearchIcon.tsx";
 import CartIcon from "$store/components/icons/CartIcon.tsx";
 import UserIcon from "$store/components/icons/UserIcon.tsx";
 
@@ -63,7 +63,6 @@ function CartButton() {
   );
 }
 
-
 function LoginButton() {
   const { displayLogin } = useUI();
 
@@ -80,8 +79,9 @@ function LoginButton() {
   );
 }
 
-
-function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" | "login"}) {
+function HeaderButton(
+  { variant }: { variant: "cart" | "search" | "menu" | "login" },
+) {
   if (variant === "cart") {
     return <CartButton />;
   }
