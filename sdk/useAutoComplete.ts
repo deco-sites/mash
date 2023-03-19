@@ -13,7 +13,6 @@ async function vtexSearchSuggestion(
   try {
     const data: LegacyProduct[] = await client.catalog_system.products({ term: query }) ;
 
-    console.log('data', data, 'data')
 
     if (!data) return;
 
@@ -57,8 +56,11 @@ const setSearch = debounce(async (search: string) => {
     search,
   );
 
+  console.log(_suggestion, '_');
+  console.log(suggestions, 'suggestions');
+
   setSuggestions(_suggestion);
-}, 250);
+}, 0);
 
 /**
  * This hook only works if the vtex intelligent search app is installed at VTEX Account.
