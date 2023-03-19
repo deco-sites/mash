@@ -6,12 +6,14 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
 /**
  * A simple, inplace sku selector to be displayed once the user hovers the product card
  * It takes the user to the pdp once the user clicks on a given sku. This is interesting to
  * remove JS from the frontend
  */
+
 function Sizes(product: Product) {
   const possibilities = useVariantPossibilities(product);
   const options = Object.entries(
@@ -41,6 +43,7 @@ interface Props {
 }
 
 function ProductCard({ product, preload }: Props) {
+  console.log(product);
   const {
     url,
     productID,
@@ -79,7 +82,13 @@ function ProductCard({ product, preload }: Props) {
       {seller && (
         <div class="w-full bg-gray-500 relative">
           {/* <Sizes {...product} /> */}
-          <a href={product.url} class="bg-[#24b26d] text-white px-4 py-2 absolute bottom-0 left-0 right-0 mx-auto mb-4 opacity-0 transform translate-y-full transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 text-center">ADICIONAR A SACOLA</a>
+          <div class="">
+              <AddToCartButton
+                skuId={productID}
+                sellerId={seller}
+                variant="productCard"
+              />
+          </div>
         </div>
       )}
     </div>
