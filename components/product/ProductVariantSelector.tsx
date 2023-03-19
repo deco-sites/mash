@@ -71,10 +71,9 @@ function VariantSelector({ product }: Props) {
               <div class="flex">
                 <Image
                   src={color.img as string}
-                  class="w-[50px] h-[50px]"
                   sizes="(max-width: 640px) 50vw, 20vw"
-                  width={1000}
-                  height={1000}
+                  width={50}
+                  height={50}
                   loading="lazy"
                   decoding="sync"
                   fetchPriority="low"
