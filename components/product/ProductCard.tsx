@@ -108,7 +108,7 @@ function ProductCard({ product, preload, search }: Props) {
             {name}
           </Text>
           <div class="flex items-center gap-2 justify-between">
-            <div>
+            <div class="flex gap-2">
               <Text variant="caption" tone="price">
                 {formatPrice(price, offers!.priceCurrency!)}
               </Text>
