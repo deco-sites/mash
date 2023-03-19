@@ -94,7 +94,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 alt={image?.alternateName}
                 width={360}
                 height={500}
-                loading={"lazy"}
+                loading={"eager"}
                 preload={true}
               />
             </section>
