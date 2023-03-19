@@ -57,9 +57,6 @@ const setSearch = debounce(async (search: string) => {
     search,
   );
 
-  console.log(_suggestion, "_");
-  console.log(suggestions, "suggestions");
-
   setSuggestions(_suggestion);
 }, 100);
 

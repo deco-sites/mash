@@ -33,7 +33,6 @@ function SearchLegacy(
   //TODO: Remove this later on
 
   useEffect(() => {
-    console.log("action", action);
   }, [suggestions.value?.products]);
 
   useEffect(() => {
@@ -46,12 +45,11 @@ function SearchLegacy(
 
   const SearchResults = () => {
     const firstResults = suggestions.value?.products?.slice(0, 2);
-    console.log(firstResults, "firstResults");
     return (
       <Suspense fallback={<Loading />}>
         <div class="flex flex-col">
           {firstResults?.map((product: Product) => (
-            <section>
+            <section class="w-full">
               <ProductCard product={product} search={true} />
             </section>
           ))}
@@ -110,7 +108,7 @@ function SearchLegacy(
         class={`flex flex-col gap-6 divide-y divide-default empty:mt-0 md:(flex-row divide-y-0) relative`}
       >
         <div
-          class={`py-16 md:(py-6!) flex flex-col gap-4 w-full bg-white absolute top-8 transform z-[99]  ${
+          class={`py-4 md:(py-6!) flex flex-col gap-4 w-full bg-white absolute top-8 transform z-[99]  ${
             emptySuggestions
               ? "-translate-y-6 invisible"
               : "translate-y-0 visible"
