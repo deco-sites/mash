@@ -69,10 +69,14 @@ const Modal = ({
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
-      <section class="pt-6 h-full bg-default flex flex-col">
+      <section
+        class={`${
+          mode === "center" ? "md:pt-6" : "pt-6"
+        } h-full bg-default flex flex-col`}
+      >
         <header
-          class={`flex px-4 justify-between items-center pb-6 ${
-            mode === "center" ? "flex-row-reverse" : ""
+          class={`flex px-4 justify-between items-center  ${
+            mode === "center" ? "flex-row-reverse pb-2 md:pb-6" : "pb-6"
           } ${mode === "sidebar-right" ? "justify-start" : ""}`}
         >
           <Button variant="icon" onClick={onClose}>
