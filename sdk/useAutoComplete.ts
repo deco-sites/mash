@@ -11,7 +11,9 @@ async function vtexSearchSuggestion(
   query: string,
 ) {
   try {
-    const data = await client.catalog_system.products({ term: query }) satisfies LegacyProduct[];
+    const data: LegacyProduct[] = await client.catalog_system.products({ term: query }) ;
+
+    console.log('data', data, 'data')
 
     if (!data) return;
 
@@ -68,7 +70,7 @@ export default function useAutocomplete(
     // TODO: create a singleton
     vtexClient = createClient({
       ...configVTEX,
-      baseUrl: window.location.origin,
+      baseUrl: "ttps://mash.vtexcommercestable.com.br",
     });
   }
 
