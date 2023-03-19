@@ -95,6 +95,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 width={360}
                 height={500}
                 loading={"lazy"}
+                preload={true}
               />
             </section>
           </section>

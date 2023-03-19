@@ -70,22 +70,25 @@ function ProductCard({ product, preload, search }: Props) {
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={961}
-            height={961}
+            width={80}
+            height={80}
             class={`rounded w-full  ${
               search ? "w-[80px] h-[80px]" : "group-hover:hidden"
             }`}
             preload={preload}
             loading={preload ? "eager" : "lazy"}
             sizes="(max-width: 640px) 50vw, 20vw"
+            decoding="async"
           />
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={961}
-            height={961}
+            width={80}
+            height={80}
             class={`rounded w-full hidden ${search ? "" : "group-hover:block"}`}
             sizes="(max-width: 640px) 50vw, 20vw"
+            preload={preload}
+            decoding="async"
           />
           {seller && !search && (
             <div class="w-full bg-gray-500 relative">
