@@ -9,7 +9,7 @@ import Loading from "$store/components/ui/Loading.tsx";
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
 const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
-const Login = lazy(() => import("$store/components/login/Login.tsx"))
+const Login = lazy(() => import("$store/components/login/Login.tsx"));
 
 interface Props {
   menu: MenuProps;
@@ -78,7 +78,6 @@ function Modals({ menu, searchbar }: Props) {
         </Suspense>
       </Modal>
 
-      
       <Modal
         title="Acesso"
         mode="center"
@@ -92,7 +91,6 @@ function Modals({ menu, searchbar }: Props) {
           <Login />
         </Suspense>
       </Modal>
-
     </>
   );
 }

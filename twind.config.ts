@@ -6,7 +6,6 @@
  */
 import type { Options } from "$fresh/plugins/twind.ts";
 
-
 const gridCols = ([arg]: string[]) => {
   const template = Number.isInteger(Number(arg))
     ? `repeat(${arg}, minmax(0, 1fr))`

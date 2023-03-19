@@ -75,14 +75,14 @@ function ProductCard({ product, preload, search }: Props) {
             loading={preload ? "eager" : "lazy"}
             sizes="(max-width: 640px) 50vw, 20vw"
           />
-            <Image
-              src={front.url!}
-              alt={front.alternateName}
-              width={961}
-              height={961}
-              class={`rounded w-full hidden ${search ? "" : "group-hover:block" }`}
-              sizes="(max-width: 640px) 50vw, 20vw"
-            />
+          <Image
+            src={front.url!}
+            alt={front.alternateName}
+            width={961}
+            height={961}
+            class={`rounded w-full hidden ${search ? "" : "group-hover:block"}`}
+            sizes="(max-width: 640px) 50vw, 20vw"
+          />
           {seller && !search && (
             <div class="w-full bg-gray-500 relative">
               {/* <Sizes {...product} /> */}

@@ -62,7 +62,9 @@ function Cart() {
         <div class="py-4 flex flex-col gap-4">
           {discounts?.value && (
             <div class="flex justify-between items-center px-4">
-              <span class="text-black font-bold text-lg uppercase">Descontos</span>
+              <span class="text-black font-bold text-lg uppercase">
+                Descontos
+              </span>
               <span class="text-lg text-black font-bold text-green-400">
                 {formatPrice(discounts.value / 100, currencyCode!, locale)}
               </span>

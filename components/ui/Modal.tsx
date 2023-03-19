@@ -63,14 +63,18 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full  backdrop ${mode === "center" ? "h-[50%] max-w-[90%]  m-auto" : "max-h-full h-full"}  ${variant} ${
-        props.class ?? ""
-      }`}
+      class={`bg-transparent p-0 m-0 max-w-full sm:max-w-lg w-full  backdrop ${
+        mode === "center" ? "h-[50%] max-w-[90%]  m-auto" : "max-h-full h-full"
+      }  ${variant} ${props.class ?? ""}`}
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
       <section class="pt-6 h-full bg-default flex flex-col">
-        <header class={`flex px-4 justify-between items-center pb-6 ${mode === "center" ? "flex-row-reverse" : ""} ${mode === "sidebar-right" ? "justify-start" : ""}`}>
+        <header
+          class={`flex px-4 justify-between items-center pb-6 ${
+            mode === "center" ? "flex-row-reverse" : ""
+          } ${mode === "sidebar-right" ? "justify-start" : ""}`}
+        >
           <Button variant="icon" onClick={onClose}>
             <Icon id="XMark" width={40} height={40} strokeWidth={1} />
           </Button>
@@ -81,7 +85,11 @@ const Modal = ({
               </section>
             )
             : (
-              <h1 class={`${mode === "center" ? "ml-[40%]" : ""} uppercase font-extralight`}>
+              <h1
+                class={`${
+                  mode === "center" ? "ml-[40%]" : ""
+                } uppercase font-extralight`}
+              >
                 <Text variant="heading-2">{title}</Text>
               </h1>
             )}

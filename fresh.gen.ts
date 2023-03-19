@@ -14,9 +14,11 @@ import * as $$0 from "./islands/AddToCartButton.tsx";
 import * as $$1 from "./islands/HeaderButton.tsx";
 import * as $$2 from "./islands/HeaderModals.tsx";
 import * as $$3 from "./islands/HeaderSearchMenu.tsx";
-import * as $$4 from "./islands/SearchControls.tsx";
-import * as $$5 from "./islands/SearchLegacy.tsx";
-import * as $$6 from "./islands/SliderJS.tsx";
+import * as $$4 from "./islands/ProductDetails.tsx";
+import * as $$5 from "./islands/SearchControls.tsx";
+import * as $$6 from "./islands/SearchLegacy.tsx";
+import * as $$7 from "./islands/SliderJS.tsx";
+import * as $$8 from "./islands/TextCategory.tsx";
 import * as $$$0 from "./sections/BannerGrid.tsx";
 import * as $$$1 from "./sections/Carousel.tsx";
 import * as $$$2 from "./sections/CirclesHighlights.tsx";
@@ -32,13 +34,14 @@ import * as $$$11 from "./sections/ProductGallery.tsx";
 import * as $$$12 from "./sections/ProductShelf.tsx";
 import * as $$$13 from "./sections/SearchControls.tsx";
 import * as $$$14 from "./sections/SingleBanner.tsx";
-import * as $$$15 from "./sections/WhatsApp.tsx";
-import * as $$$16 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$17 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$18 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$19 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$20 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$21 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$15 from "./sections/TextCategory.tsx";
+import * as $$$16 from "./sections/WhatsApp.tsx";
+import * as $$$17 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$18 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$19 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$20 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$21 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$22 from "deco-sites/std/sections/configVTEX.global.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -71,9 +74,11 @@ const manifest: DecoManifest = {
     "./islands/HeaderButton.tsx": $$1,
     "./islands/HeaderModals.tsx": $$2,
     "./islands/HeaderSearchMenu.tsx": $$3,
-    "./islands/SearchControls.tsx": $$4,
-    "./islands/SearchLegacy.tsx": $$5,
-    "./islands/SliderJS.tsx": $$6,
+    "./islands/ProductDetails.tsx": $$4,
+    "./islands/SearchControls.tsx": $$5,
+    "./islands/SearchLegacy.tsx": $$6,
+    "./islands/SliderJS.tsx": $$7,
+    "./islands/TextCategory.tsx": $$8,
   },
   sections: {
     "./sections/BannerGrid.tsx": $$$0,
@@ -91,13 +96,14 @@ const manifest: DecoManifest = {
     "./sections/ProductShelf.tsx": $$$12,
     "./sections/SearchControls.tsx": $$$13,
     "./sections/SingleBanner.tsx": $$$14,
-    "./sections/WhatsApp.tsx": $$$15,
-    "deco-sites/std/sections/SEO.tsx": $$$16,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$17,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$18,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$19,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$20,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$21,
+    "./sections/TextCategory.tsx": $$$15,
+    "./sections/WhatsApp.tsx": $$$16,
+    "deco-sites/std/sections/SEO.tsx": $$$17,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$18,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$19,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$20,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$21,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$22,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -380,6 +386,10 @@ const manifest: DecoManifest = {
                   "anyOf": [
                     {
                       "type": "string",
+                      "const": "MenuOrdenar",
+                    },
+                    {
+                      "type": "string",
                       "const": "ChevronLeft",
                     },
                     {
@@ -581,6 +591,10 @@ const manifest: DecoManifest = {
                           "icon": {
                             "type": "string",
                             "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "MenuOrdenar",
+                              },
                               {
                                 "type": "string",
                                 "const": "ChevronLeft",
@@ -1391,6 +1405,10 @@ const manifest: DecoManifest = {
           "alt",
         ],
       },
+      "outputSchema": null,
+    },
+    "./sections/TextCategory.tsx": {
+      "inputSchema": null,
       "outputSchema": null,
     },
     "./sections/WhatsApp.tsx": {

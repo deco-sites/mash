@@ -60,7 +60,9 @@ function SearchLegacy(
     );
   };
 
-  const emptySuggestions = suggestions.value?.products?.length === 0 || suggestions.value?.products === undefined || searchInputRef.current?.value === "";
+  const emptySuggestions = suggestions.value?.products?.length === 0 ||
+    suggestions.value?.products === undefined ||
+    searchInputRef.current?.value === "";
   const _products = suggestions.value?.products &&
     suggestions.value?.products?.length !== 0 &&
     suggestions.value.products;
@@ -103,7 +105,13 @@ function SearchLegacy(
       <div
         class={`flex flex-col gap-6 divide-y divide-default empty:mt-0 md:(flex-row divide-y-0) relative`}
       >
-        <div class={`py-16 md:(py-6!) flex flex-col gap-4 w-full bg-white absolute top-8 transform z-[99]  ${emptySuggestions ? "-translate-y-6 invisible" : "translate-y-0 visible"}  transition-all duration-500 ease-in-out`}>
+        <div
+          class={`py-16 md:(py-6!) flex flex-col gap-4 w-full bg-white absolute top-8 transform z-[99]  ${
+            emptySuggestions
+              ? "-translate-y-6 invisible"
+              : "translate-y-0 visible"
+          }  transition-all duration-500 ease-in-out`}
+        >
           <SearchResults />
         </div>
       </div>
