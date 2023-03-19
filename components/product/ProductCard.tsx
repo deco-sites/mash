@@ -8,6 +8,7 @@ import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 
+
 /**
  * A simple, inplace sku selector to be displayed once the user hovers the product card
  * It takes the user to the pdp once the user clicks on a given sku. This is interesting to
@@ -50,6 +51,7 @@ function ProductCard({ product, preload, search }: Props) {
     name,
     image: images,
     offers,
+    additionalProperty
   } = product;
   const [front, back] = images ?? [];
   const { listPrice, price, seller } = useOffer(offers);
@@ -88,12 +90,13 @@ function ProductCard({ product, preload, search }: Props) {
           {seller && !search && (
             <div class="w-full bg-gray-500 relative">
               {/* <Sizes {...product} /> */}
-              <a
-                href={product.url}
-                class="bg-[#24b26d] text-white px-4 py-2 absolute bottom-0 left-0 right-0 mx-auto mb-4 opacity-0 transform translate-y-full transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 text-center"
-              >
-                ADICIONAR A SACOLA
-              </a>
+              <div class="">
+                <AddToCartButton
+                  skuId={productID}
+                  sellerId={seller}
+                  variant="productCard"
+                />
+              </div>
             </div>
           )}
         </div>
@@ -104,17 +107,32 @@ function ProductCard({ product, preload, search }: Props) {
           >
             {name}
           </Text>
-          <div class="flex items-center gap-2">
-            <Text variant="caption" tone="price">
-              {formatPrice(price, offers!.priceCurrency!)}
-            </Text>
-            <Text
-              class="line-through"
-              variant="list-price"
-              tone="subdued"
-            >
-              {formatPrice(listPrice, offers!.priceCurrency!)}
-            </Text>
+          <div class="flex items-center gap-2 justify-between">
+            <div>
+              <Text variant="caption" tone="price">
+                {formatPrice(price, offers!.priceCurrency!)}
+              </Text>
+              <Text
+                class="line-through"
+                variant="list-price"
+                tone="subdued"
+              >
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </Text>
+            </div>
+            {additionalProperty?.map((property, value) => {
+              if (property.name === "Cores") {
+                return (
+                  <div class="flex justify-end">
+                    <Avatar
+                    // deno-lint-ignore no-explicit-any
+                    content={property.value as any}
+                    variant="color"
+                    />
+                  </div>
+                );
+              }
+            })} 
           </div>
         </div>
       </a>

@@ -33,6 +33,7 @@ const colors = {
   "ROXO": "#c62bff",
   "VERDE": "#3fb922",
   "VERMELHO": "#ff2b2b",
+  "AZUL MARINHO": "#13273d",
 };
 
 type Props =
