@@ -35,6 +35,7 @@ function ProductShelf({
       </h2>
 
       <Slider
+        id="product-shelf"
         class="gap-6 col-span-full row-start-2 row-end-5"
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
       >
