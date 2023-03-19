@@ -116,11 +116,15 @@ function GlobalTags() {
             content: "+";
           }
 
-          #gender_radio:checked, #newsletter-concordo:checked {
+          #gender_radio:checked, #newsletter-concordo:checked, #checkbox-filter:checked {
             background-color: #000;
             background-image: url(${asset("/checkbox.png")});
             background-repeat: no-repeat;
             background-position: center;
+          }
+
+          #sort:hover #MenuOrdenar {
+            fill: #FFFFFF
           }
       `,
         }}

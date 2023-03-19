@@ -7,14 +7,13 @@ const SORT_QUERY_PARAM = "sort";
 
 // TODO: The search query should also be from a commerce schema
 const options = [
-  { value: "", label: "Relevância" },
-  { value: "price:desc", label: "Maior Preço" },
-  { value: "price:asc", label: "Menor Preço" },
-  { value: "orders:desc", label: "Mais Pedidos" },
-  { value: "name:asc", label: "Nome (A -> Z)" },
-  { value: "name:desc", label: "Nome (Z -> A)" },
-  { value: "release:desc", label: "Lançamentos" },
-  { value: "discount:desc", label: "Maior Desconto" },
+  { value: "", label: "Ordenar" },
+  { value: "price:desc", label: "Preço: do menor para o maior" },
+  { value: "price:asc", label: "Preço: do maior para o menor" },
+  { value: "name:asc", label: "Nome do produto: a-z" },
+  { value: "name:desc", label: "Nome do produto: z-a" },
+  { value: "release:desc", label: "Data de lançamento" },
+  { value: "discount:desc", label: "Melhor Desconto" },
 ];
 
 const useSort = () =>
@@ -24,12 +23,10 @@ const useSort = () =>
   }, []);
 
 // TODO: Replace with "search utils"
-const applySort = (e: JSX.TargetedEvent<HTMLSelectElement, Event>) => {
+const applySort = (value: string) => {
   const urlSearchParams = new URLSearchParams(window.location.search);
 
-  console.log(e.currentTarget.value);
-
-  urlSearchParams.set(SORT_QUERY_PARAM, e.currentTarget.value);
+  urlSearchParams.set(SORT_QUERY_PARAM, value);
   window.location.search = urlSearchParams.toString();
 };
 
@@ -37,18 +34,23 @@ function Sort() {
   const sort = useSort();
 
   return (
-    <select
+    <section
       id="sort"
       name="sort"
-      onInput={applySort}
-      class="w-min h-[36px] px-1 rounded m-2 text-button font-button text-default hover:bg-hover cursor-pointer outline-none"
+      class="group h-[40px] m-2 text-button font-button cursor-pointer outline-none w-[200px]"
     >
-      {options.map(({ value, label }) => (
-        <option key={value} value={value} selected={value === sort}>
-          <Text variant="caption">{label}</Text>
-        </option>
-      ))}
-    </select>
+      <section id="MenuOrdenar" class="h-full flex justify-center items-center group-hover:(bg-black text-white) transition">
+        <Icon id="MenuOrdenar" width={20} height={16} strokeWidth={0.1}/>
+        <span>Ordenar</span>
+      </section>
+      <section class="invisible group-hover:visible absolute z-10 bg-white w-[200px] py-[15px] px-[10px]">
+        {options.map(({ value, label }) => (
+          <section class="my-2" key={value} onClick={() => {applySort(value)}}>
+            <span class="py-2 text(xs black) font-body">{label}</span>
+          </section>
+        ))}
+      </section>
+    </section>
   );
 }
 
