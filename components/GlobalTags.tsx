@@ -126,6 +126,22 @@ function GlobalTags() {
           #sort:hover #MenuOrdenar {
             fill: #FFFFFF
           }
+
+          #provador {
+            background-image: url(https://szb-tenants-production.s3.amazonaws.com/1777/provvirtual.svg);
+            width: 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+          }
+
+          #medidor {
+            background-image: url(https://szb-tenants-production.s3.amazonaws.com/1777/tabmedidas.svg);
+            width: 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+          }
       `,
         }}
       />

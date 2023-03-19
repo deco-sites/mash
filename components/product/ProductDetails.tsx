@@ -10,6 +10,7 @@ import { formatPrice } from "$store/sdk/format.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import { useState } from "preact/hooks";
+import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
 
@@ -48,6 +49,8 @@ function Details({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
   const [image, setImage] = useState(front);
+  console.log(product, "product")
+  
 
   return (
     <section class=" bg-[#f7f7f7] w-full">
@@ -86,8 +89,6 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 alt={image?.alternateName}
                 width={360}
                 height={500}
-                // Preload LCP image for better web vitals
-                preload={true}
                 loading={"lazy"}
               />
             </section>
@@ -124,35 +125,45 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
         </div>
         {/* Product Info */}
-        <div class="flex-auto px-4 sm:px-0 bg-white h-full">       
+        <div class="flex-auto px-4 bg-white h-full">       
           {/* Code and name */}
           <div class="mt-4 sm:mt-8">
-            <div>
-              <Text tone="subdued" variant="caption">
-                Cod. {gtin}
-              </Text>
-            </div>
             <h1>
               <Text variant="heading-3">{name}</Text>
             </h1>
+            <div>
+              estrelas
+            </div>
+            <div>
+              <Text tone="subdued" variant="caption">
+                REF: {gtin}
+              </Text>
+            </div>
           </div>
           {/* Prices */}
           <div class="mt-4">
             <div class="flex flex-row gap-2 items-center">
-              <Text
-                class="line-through"
-                tone="subdued"
-                variant="list-price"
-              >
-                {formatPrice(listPrice, offers!.priceCurrency!)}
-              </Text>
               <Text tone="price" variant="heading-3">
                 {formatPrice(price, offers!.priceCurrency!)}
               </Text>
+              <Text
+                class="line-through"
+                tone="price"
+                variant="heading-3"
+              >
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </Text>
             </div>
-            <Text tone="subdued" variant="caption">
-              {installments}
-            </Text>
+            <section class="flex gap-4">
+                <section class="flex">
+                  <button id="provador"></button>
+                  <span class="cursor-pointer">PROVADOR VIRTUAL</span>
+                </section>
+                <section class="flex">
+                  <button id="medidor" class=""></button>
+                  <span class="cursor-pointer">TABELA DE MEDIDAS</span>
+                </section>
+            </section>
           </div>
           {/* Sku Selector */}
           <div class="mt-4 sm:mt-6">
