@@ -75,7 +75,7 @@ const options: Omit<Options, "selfURL"> = {
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
-        "caption": ["16px", "20px"],
+        "caption": ["14px", "16px"],
         "list-price": ["10px", "20px"],
       },
       fontWeight: {
