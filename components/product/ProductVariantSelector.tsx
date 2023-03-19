@@ -41,6 +41,7 @@ function VariantSelector({ product }: Props) {
         }
       });
     }
+    
 
     if (name === "Tamanho") {
       return Object.entries(possibilities[name]).map(([url, value]) => {
