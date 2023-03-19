@@ -2,35 +2,25 @@ import Image from "deco-sites/std/components/Image.tsx";
 
 const CardRating = () => {
     return (
-        <section class="flex flex-col items-center">
-            <section>
-                <p>Gustavo S.</p>
-                <p>13/03/2023</p>
-            </section>
-            <section>
-                <p>estrelas</p>
-                <p>Confortável e boa qualidade</p>
-                <p>Confortável e material de boa qualidade. Adaptar bem ao corpo. Tamanho M (altura 1,71m, peso 75 Kg). Recomendo.</p>
-                <section>
-                    <p>Olá, Gustavo ! Ficamos felizes que tenham gostado da Cueca Boxer Sem Costura. Agradecemos o feedback e avaliação</p>
+        <section class="border-t-2 mt-4 border-b-2">
+            <section class="flex items-center max-w-[1280px] my-2 mx-auto">
+                <section class="mr-8">
+                    <p>Gustavo S.</p>
+                    <p>13/03/2023</p>
                 </section>
-                <section>
-                    <section class="flex">
-                    <Image
-                        src="$store/static/happy-face.png"
-                        class=""
-                        sizes="(max-width: 640px) 50vw, 20vw"
-                        width={}
-                        height={}
-                        loading="lazy"
-                        decoding="async"
-                        fetchPriority="high"
-                        alt={}
-                    />
-                        <p>Útil</p>
+                <section class="w-full">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <article class="text-[#6c6c6c]">
+                        <p>Confortável e boa qualidade</p>
+                        <p>Confortável e material de boa qualidade. Adaptar bem ao corpo. Tamanho M (altura 1,71m, peso 75 Kg). Recomendo.</p>
+                    </article>
+                    <section class="p-4 text-[#6c6c6c] bg-[#f4f4f4] mt-2 border-l-2">
+                        <p>Olá, Gustavo ! Ficamos felizes que tenham gostado da Cueca Boxer Sem Costura. Agradecemos o feedback e avaliação</p>
                     </section>
                     <section>
+                        <section>
 
+                        </section>
                     </section>
                 </section>
             </section>
@@ -56,8 +46,7 @@ const RatingProduct = () => {
                         <span class="text([13px] [#878787]) font-heading-1 text-center">Baseado em 28 avaliações</span>
                     </section>
                     <section class="flex">
-                        <span>grafico</span>
-                        <span class="text([13px] [#878787]) font-heading-1 text-center">dos clientes recomendam este produto</span>
+                        <span class="text([13px] [#878787]) font-heading-1 text-center">grafico dos clientes recomendam este produto</span>
                     </section>
                 </section>
                 <section class="flex flex-col md:flex-row justify-between items-center">

@@ -137,7 +137,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
               <Text variant="heading-3">{name}</Text>
             </h1>
             <div>
-              estrelas
+              ⭐⭐⭐⭐⭐
             </div>
             <div>
               <Text tone="subdued" variant="caption">
