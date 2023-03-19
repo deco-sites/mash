@@ -16,7 +16,7 @@ const CardRating = () => {
                 </section>
                 <section>
                     <section class="flex">
-                    <Image
+                    {/* <Image
                         src="$store/static/happy-face.png"
                         class=""
                         sizes="(max-width: 640px) 50vw, 20vw"
@@ -26,7 +26,7 @@ const CardRating = () => {
                         decoding="async"
                         fetchPriority="high"
                         alt={}
-                    />
+                    /> */}
                         <p>Útil</p>
                     </section>
                     <section>

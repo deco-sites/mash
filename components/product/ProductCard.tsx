@@ -64,7 +64,7 @@ function ProductCard({ product, preload, search }: Props) {
       <a
         href={url}
         aria-label="product link"
-        class={`${search ? "flex items-center" : ""}`}
+        class={`${search ? "flex items-center w-full" : ""}`}
       >
         <div class={`relative ${search ? "" : "w-full"} group`}>
           <Image

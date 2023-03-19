@@ -6,14 +6,14 @@ function Login() {
       <section class="font-bold text-[#aaa] text-center">
         Escolha uma opção para entrar
       </section>
-      <section class="mt-4 gap-y-4 flex flex-col">
+      <section class="mt-4 gap-y-2 md:gap-y-4 flex flex-col">
         <button class="bg-[#3b5998] text-white w-full py-2 px-10 focus:outline-none">
-          <span class="text-white uppercase font-bold text-sm">
+          <span class="text-white uppercase font-bold md:text-sm text-xs">
             Entrar com o Facebook
           </span>
         </button>
         <button class="bg-[#DD4C3A] text-white w-full py-2 px-10 focus:outline-none">
-          <span class="text-white uppercase font-bold text-sm">
+          <span class="text-white uppercase font-bold md:text-sm text-xs">
             Entrar com uma conta google
           </span>
         </button>
@@ -42,7 +42,7 @@ function Login() {
               class="bg-black text-white w-full py-2 px-10 focus:outline-none"
               type="submit"
             >
-              <span class="text-white uppercase font-bold text-sm">
+              <span class="text-white uppercase font-bold md:text-sm text-xs">
                 Entrar
               </span>
             </button>
