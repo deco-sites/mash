@@ -53,14 +53,14 @@ function Details({ page }: { page: ProductDetailsPage }) {
   return (
     <section class=" bg-[#f7f7f7] w-full">
       <Container class="">
-        <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-10 h-[860px]">
+        <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-10 md:h-[860px]">
           {/* Image Gallery */}
-          <div class="flex flex-col overflow-auto snap-x snap-mandatory scroll-smooth gap-4 w-[690px]">
+          <div class="flex flex-col md:overflow-auto snap-x snap-mandatory scroll-smooth gap-4 md:w-[690px] px-2">
             <Breadcrumb
               itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
             />
             <section class="flex gap-2">
-              <section class="flex flex-col gap-4">
+              <section class="md:flex hidden flex-col gap-4">
                 {[front, back ?? front].map((img, index) => (
                   <section
                     onClick={() => {
@@ -85,7 +85,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 </section>
               ))}
             </section>
-            <section class="w-[590px] h-[590px] bg-white">
+            <section class="md:w-[590px] md:h-[590px] w-full bg-white">
               <Image
                 style={{ aspectRatio: "360 / 500" }}
                 class="h-full w-full object-contain rounded-md"
@@ -103,7 +103,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
             <Text variant="caption">
               {description && (
                 <details>
-                  <summary class="cursor-pointer">Descrição</summary>
+                  <summary class="cursor-pointer text([14px]) font-semibold py-6 border-b-1 border-[#dbdbdb]">Descrição</summary>
                   <div class="ml-2 mt-2">{description}</div>
                 </details>
               )}
@@ -113,7 +113,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
             <Text variant="caption">
               {additionalProperty && (
                 <details>
-                  <summary class="cursor-pointer">Caracteristicas</summary>
+                  <summary class="cursor-pointer text([14px]) font-semibold py-6 border-b-1 border-[#dbdbdb]">Caracteristicas</summary>
                   <div class="ml-2 mt-2">
                     {additionalProperty.map((prop) => {
                       return (
@@ -134,7 +134,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
           {/* Code and name */}
           <div class="mt-4 sm:mt-8">
             <h1>
-              <Text variant="heading-3">{name}</Text>
+              <span class="text-[14px] font-semibold">{name}</span>
             </h1>
             <div>
               estrelas
@@ -146,15 +146,16 @@ function Details({ page }: { page: ProductDetailsPage }) {
             </div>
           </div>
           {/* Prices */}
-          <div class="mt-4">
-            <div class="flex flex-row gap-2 items-center">
-              <Text tone="price" variant="heading-3">
+          <div class="mt-4 mb-[20px]">
+            <div class="flex flex-row gap-2 items-center mb-[20px]">
+              <Text tone="price" variant="heading-3" class="text([26px] [#24B26D]) font-bold">
                 {formatPrice(price, offers!.priceCurrency!)}
               </Text>
               <Text
-                class="line-through"
+                class="line-through text([14px]) font-caption"
                 tone="price"
                 variant="heading-3"
+                
               >
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </Text>
@@ -182,10 +183,12 @@ function Details({ page }: { page: ProductDetailsPage }) {
                 sellerId={seller}
               />
             )}
-            <Button variant="secondary">
-              <Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
-              Favoritar
-            </Button>
+            <p class="text-[14px] mb-[5px] mt-[15px] font-semibold">RECEBA EM CASA</p>
+            <p class="text-[14px] mb-[5px]">Informe seu CEP para consultar os prazos de entrega para sua casa</p>
+            <div class="flex">
+              <input type="text" placeholder="00000-000" class="w-full bg-[#F7F7F7] pl-2"/>
+              <button class="w-[117px] bg-black text-white py-[12px] px-[25px]">Calcular</button>
+            </div>
           </div>
         </div>
       </div>

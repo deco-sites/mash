@@ -41,6 +41,7 @@ function VariantSelector({ product }: Props) {
         }
       });
     }
+    
 
     if (name === "Tamanho") {
       return Object.entries(possibilities[name]).map(([url, value]) => {
@@ -59,7 +60,6 @@ function VariantSelector({ product }: Props) {
     return null;
   });
 
-  console.log(product);
 
   return (
     <ul class="flex flex-col gap-4">
@@ -83,10 +83,10 @@ function VariantSelector({ product }: Props) {
                 <div class="flex flex-col">
                   <span class="lowercase">{color.value}</span>
                   
-                  <select class="border border-gray-300 focus:outline-none" onChange={(e) => window.location.href = (e.target as HTMLInputElement).value}>
+                  <select class="focus:outline-none w-[170px] px-[7px] bg-[#f7f7f7]" onChange={(e) => window.location.href = (e.target as HTMLInputElement).value}>
                     {sizesSkus.map((size) => {
                       return (
-                        <option value={size.url}>
+                        <option class="bg-[#f7f7f7] py-2" value={size.url}>
                           {size.value}
                         </option>
                       );
