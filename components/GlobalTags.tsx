@@ -243,6 +243,11 @@ function GlobalTags() {
               font-size: 12px;
           }
           .trustvox-widget-rating:hover span.rating-click-here {text-decoration: underline;}
+          
+          #product-shelf::-webkit-scrollbar {
+            height: 0px;
+            background-color: transparent;
+          }
       `,
         }}
       />
