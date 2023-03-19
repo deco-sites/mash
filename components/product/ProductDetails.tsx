@@ -137,7 +137,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
               <span class="text-[14px] font-semibold">{name}</span>
             </h1>
             <div>
-              estrelas
+              ⭐⭐⭐⭐⭐
             </div>
             <div>
               <Text tone="subdued" variant="caption">
