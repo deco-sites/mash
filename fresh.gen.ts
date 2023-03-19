@@ -29,20 +29,21 @@ import * as $$$6 from "./sections/Footer.tsx";
 import * as $$$7 from "./sections/GridBanner.tsx";
 import * as $$$8 from "./sections/Header.tsx";
 import * as $$$9 from "./sections/Highlights.tsx";
-import * as $$$10 from "./sections/ProductDetails.tsx";
-import * as $$$11 from "./sections/ProductGallery.tsx";
-import * as $$$12 from "./sections/ProductShelf.tsx";
-import * as $$$13 from "./sections/RatingProduct.tsx";
-import * as $$$14 from "./sections/SearchControls.tsx";
-import * as $$$15 from "./sections/SingleBanner.tsx";
-import * as $$$16 from "./sections/TextCategory.tsx";
-import * as $$$17 from "./sections/WhatsApp.tsx";
-import * as $$$18 from "deco-sites/std/sections/SEO.tsx";
-import * as $$$19 from "deco-sites/std/sections/SEOPDP.tsx";
-import * as $$$20 from "deco-sites/std/sections/SEOPLP.tsx";
-import * as $$$21 from "deco-sites/std/sections/configOCC.global.tsx";
-import * as $$$22 from "deco-sites/std/sections/configShopify.global.tsx";
-import * as $$$23 from "deco-sites/std/sections/configVTEX.global.tsx";
+import * as $$$10 from "./sections/Newslettes.tsx";
+import * as $$$11 from "./sections/ProductDetails.tsx";
+import * as $$$12 from "./sections/ProductGallery.tsx";
+import * as $$$13 from "./sections/ProductShelf.tsx";
+import * as $$$14 from "./sections/RatingProduct.tsx";
+import * as $$$15 from "./sections/SearchControls.tsx";
+import * as $$$16 from "./sections/SingleBanner.tsx";
+import * as $$$17 from "./sections/TextCategory.tsx";
+import * as $$$18 from "./sections/WhatsApp.tsx";
+import * as $$$19 from "deco-sites/std/sections/SEO.tsx";
+import * as $$$20 from "deco-sites/std/sections/SEOPDP.tsx";
+import * as $$$21 from "deco-sites/std/sections/SEOPLP.tsx";
+import * as $$$22 from "deco-sites/std/sections/configOCC.global.tsx";
+import * as $$$23 from "deco-sites/std/sections/configShopify.global.tsx";
+import * as $$$24 from "deco-sites/std/sections/configVTEX.global.tsx";
 import * as $$$$0 from "$live/functions/EffectSelectPage.ts";
 import * as $$$$1 from "$live/functions/MatchDate.ts";
 import * as $$$$2 from "$live/functions/MatchEnvironment.ts";
@@ -92,20 +93,21 @@ const manifest: DecoManifest = {
     "./sections/GridBanner.tsx": $$$7,
     "./sections/Header.tsx": $$$8,
     "./sections/Highlights.tsx": $$$9,
-    "./sections/ProductDetails.tsx": $$$10,
-    "./sections/ProductGallery.tsx": $$$11,
-    "./sections/ProductShelf.tsx": $$$12,
-    "./sections/RatingProduct.tsx": $$$13,
-    "./sections/SearchControls.tsx": $$$14,
-    "./sections/SingleBanner.tsx": $$$15,
-    "./sections/TextCategory.tsx": $$$16,
-    "./sections/WhatsApp.tsx": $$$17,
-    "deco-sites/std/sections/SEO.tsx": $$$18,
-    "deco-sites/std/sections/SEOPDP.tsx": $$$19,
-    "deco-sites/std/sections/SEOPLP.tsx": $$$20,
-    "deco-sites/std/sections/configOCC.global.tsx": $$$21,
-    "deco-sites/std/sections/configShopify.global.tsx": $$$22,
-    "deco-sites/std/sections/configVTEX.global.tsx": $$$23,
+    "./sections/Newslettes.tsx": $$$10,
+    "./sections/ProductDetails.tsx": $$$11,
+    "./sections/ProductGallery.tsx": $$$12,
+    "./sections/ProductShelf.tsx": $$$13,
+    "./sections/RatingProduct.tsx": $$$14,
+    "./sections/SearchControls.tsx": $$$15,
+    "./sections/SingleBanner.tsx": $$$16,
+    "./sections/TextCategory.tsx": $$$17,
+    "./sections/WhatsApp.tsx": $$$18,
+    "deco-sites/std/sections/SEO.tsx": $$$19,
+    "deco-sites/std/sections/SEOPDP.tsx": $$$20,
+    "deco-sites/std/sections/SEOPLP.tsx": $$$21,
+    "deco-sites/std/sections/configOCC.global.tsx": $$$22,
+    "deco-sites/std/sections/configShopify.global.tsx": $$$23,
+    "deco-sites/std/sections/configVTEX.global.tsx": $$$24,
   },
   functions: {
     "$live/functions/EffectSelectPage.ts": $$$$0,
@@ -1268,6 +1270,67 @@ const manifest: DecoManifest = {
         },
         "required": [
           "title",
+        ],
+      },
+      "outputSchema": null,
+    },
+    "./sections/Newslettes.tsx": {
+      "inputSchema": {
+        "title": " Newslettes",
+        "type": "object",
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Title newsletter",
+                "description": "text to be displayed in the newsletter title",
+                "default": "NÃO PARE DE MUDAR",
+              },
+              "text": {
+                "type": "string",
+                "title": "Text newsletter",
+                "description": "text to be displayed in the newsletter text",
+                "default": "E RECEBA AS NOVIDADES MASH",
+              },
+              "placeholderName": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Placeholder name",
+                "description": "placeholder to be displayed in the name input",
+                "default": "Seu Nome",
+              },
+              "placeholderEmail": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Placeholder email",
+                "description": "placeholder to be displayed in the email input",
+                "default": "Seu E-mail",
+              },
+              "textButton": {
+                "type": [
+                  "string",
+                  "null",
+                ],
+                "title": "Text button",
+                "description": "text to be displayed in the button",
+                "default": "Cadastrar",
+              },
+            },
+            "required": [
+              "title",
+              "text",
+            ],
+          },
+        },
+        "required": [
+          "text",
         ],
       },
       "outputSchema": null,

@@ -123,7 +123,6 @@ function Footer(
   return (
     <footer class="w-full bg-footer flex flex-col">
       <div>
-        <Newsletter text={TextNewsletter} />
 
         <FooterContainer>
           <section class="flex justify-between max-w-[950px] mx-auto flex-wrap">
