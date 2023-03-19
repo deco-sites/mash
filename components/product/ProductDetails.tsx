@@ -14,7 +14,6 @@ import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
 
-
 export interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
 }
@@ -54,17 +53,24 @@ function Details({ page }: { page: ProductDetailsPage }) {
 
   return (
     <section class=" bg-[#f7f7f7] w-full">
-    <Container class="">
-      <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-10 h-[860px]">
-        {/* Image Gallery */}
-        <div class="flex flex-col overflow-auto snap-x snap-mandatory scroll-smooth gap-4 w-[690px]">
-          <Breadcrumb
-            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-          />
-          <section class="flex gap-2">
-            <section class="flex flex-col gap-4">
-              {[front, back ?? front].map((img, index) => (
-                <section onClick={() => {setImage(img)}} class={`${image == img ? "border(1 [#cfcfcf])" : ""} bg-white h-[75px] w-[75px]`}>
+      <Container class="">
+        <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-10 h-[860px]">
+          {/* Image Gallery */}
+          <div class="flex flex-col overflow-auto snap-x snap-mandatory scroll-smooth gap-4 w-[690px]">
+            <Breadcrumb
+              itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+            />
+            <section class="flex gap-2">
+              <section class="flex flex-col gap-4">
+                {[front, back ?? front].map((img, index) => (
+                  <section
+                    onClick={() => {
+                      setImage(img);
+                    }}
+                    class={`${
+                      image == img ? "border(1 [#cfcfcf])" : ""
+                    } bg-white h-[75px] w-[75px]`}
+                  >
                     <Image
                       style={{ aspectRatio: "360 / 500" }}
                       class="h-full w-full object-contain rounded-md"

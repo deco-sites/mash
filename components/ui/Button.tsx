@@ -25,8 +25,10 @@ const variants = {
     "h-[36px] px-2 bg-mash-grey text-default border-transparent disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none transform transition-transform duration-150 ease-in font-bold",
   coupon:
     "h-[36px] px-3 bg-interactive font-button text-white text-default-inverse border-transparent hover:text-black hover:bg-mash-grey hover:border-interactive active:bg-interactive active:text-default-inverse active:border-transparent disabled:border-default disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none uppercase",
-  purchase: 
+  purchase:
     "px-3 py-4 h-[60px] bg-green-400 font-button text-white text-default-inverse border-transparent hover:text-black hover:bg-mash-grey hover:border-interactive active:bg-interactive active:text-default-inverse active:border-transparent disabled:border-default disabled:text-subdued disabled:bg-interactive-inverse focus:outline-none uppercase",
+  productCard:
+    "bg-[#24b26d] text-white px-4 py-4 uppercase absolute bottom-0 left-0 right-0 mx-auto mb-4 opacity-0 transform translate-y-full transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 text-center",
 };
 
 const Button = forwardRef<HTMLButtonElement, Props>(({

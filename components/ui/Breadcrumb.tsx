@@ -29,29 +29,29 @@ function Breadcrumb({ itemListElement = [], itemList }: Props) {
   return (
     <ul class="flex flex-row gap-2 items-center w-full">
       <Item name="Home" item="/" />
-      {itemListElement.length > 0 ? itemListElement.map((item) => (
-        <>
-          <li class="mt-0.5">
-            <Icon id="ChevronRight" width={16} height={16} strokeWidth={2} />
-          </li>
-          <Item {...item} />
-        </>
-      ))
-      : items?.map((item) => (
-        <>
-          <li class="mt-0.5 text(xs black) capitalize">
-            |
-          </li>
-          <li class="whitespace-nowrap overflow-hidden overflow-ellipsis">
-            <a href={`/${item}`} class="">
-              <span class="text(xs black) capitalize">
-                {item}
-              </span>
-            </a>
-          </li>
-        </>
-      ))
-    }
+      {itemListElement.length > 0
+        ? itemListElement.map((item) => (
+          <>
+            <li class="mt-0.5">
+              <Icon id="ChevronRight" width={16} height={16} strokeWidth={2} />
+            </li>
+            <Item {...item} />
+          </>
+        ))
+        : items?.map((item) => (
+          <>
+            <li class="mt-0.5 text(xs black) capitalize">
+              |
+            </li>
+            <li class="whitespace-nowrap overflow-hidden overflow-ellipsis">
+              <a href={`/${item}`} class="">
+                <span class="text(xs black) capitalize">
+                  {item}
+                </span>
+              </a>
+            </li>
+          </>
+        ))}
     </ul>
   );
 }

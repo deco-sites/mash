@@ -8,24 +8,26 @@ function GlobalTags() {
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={asset("/favicon-32x32.png")}
+        href={asset("/favicon.png")}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href={asset("/favicon-16x16.png")}
+        href={asset("/favicon.png")}
       />
       <link
         rel="shortcut icon"
         type="image/x-icon"
-        href={asset("/favicon-32x32.png")}
+        href={asset("/favicon.png")}
       />
+      <title>Mash</title>
 
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
       <meta name="theme-color" content="#221E1F" />
       <meta name="msapplication-TileColor" content="#221E1F" />
+
 
       {
         /*
@@ -142,6 +144,16 @@ function GlobalTags() {
             background-repeat: no-repeat;
             margin-right: 10px;
           }
+          .trustvox-widget-rating .ts-shelf-container,
+          .trustvox-widget-rating .trustvox-shelf-container {display: inline-block;}
+          .trustvox-widget-rating span.rating-click-here {
+              top: -3px;
+              display: inline-block;
+              position: relative;
+              color: #DAA81D;
+              font-size: 12px;
+          }
+          .trustvox-widget-rating:hover span.rating-click-here {text-decoration: underline;}
       `,
         }}
       />

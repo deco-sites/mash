@@ -15,7 +15,6 @@ const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
 function FilterValues({ key, values, label }: FilterToggle) {
-  
   const flexDirection = key === "tamanho" || key === "Cores"
     ? "flex-row"
     : "flex-col";
@@ -27,10 +26,11 @@ function FilterValues({ key, values, label }: FilterToggle) {
         <p class="cursor-pointer group-hover:hidden">+</p>
         <p class="cursor-pointer hidden group-hover:block">-</p>
       </section>
-      <ul class={`md:invisible md:group-hover:visible hidden group-hover:flex md:flex border-none md:border(t-[3px] [#D9D9D9]) p-6 bg-white md:absolute z-10 flex-wrap gap-6 ${flexDirection}`}>
+      <ul
+        class={`md:invisible md:group-hover:visible hidden group-hover:flex md:flex border-none md:border(t-[3px] [#D9D9D9]) p-6 bg-white md:absolute z-10 flex-wrap md:gap-2 md:max-w-[170px] ${flexDirection}`}
+      >
         {values.map(({ label, value, url, selected }) => {
           if (key === "Cores") {
-            
             return (
               <a href={url}>
                 <Avatar
@@ -57,7 +57,12 @@ function FilterValues({ key, values, label }: FilterToggle) {
 
           return (
             <a href={url} class="flex items-center gap-2">
-              <input id="checkbox-filter" type="checkbox" checked={selected} class="pointer-events-none appearance-none bg-white h-[15px] w-[15px] border(1 [#EBEBEB])"/>
+              <input
+                id="checkbox-filter"
+                type="checkbox"
+                checked={selected}
+                class="pointer-events-none appearance-none bg-white h-[15px] w-[15px] border(1 [#EBEBEB])"
+              />
               <span class="text(xs black)">{label}</span>
             </a>
           );
@@ -80,7 +85,12 @@ export default function Filters({ filters }: Props) {
             <FilterValues {...filter} />
           </li>
         ))}
-      <button class="text([10px]) uppercase px-2 focus:outline-none border-none" onClick={() => setOpen(!open)}>{open ? "fechar" : "abrir"}</button>
+      <button
+        class="text([10px]) uppercase px-2 focus:outline-none border-none"
+        onClick={() => setOpen(!open)}
+      >
+        {open ? "fechar" : "abrir"}
+      </button>
     </ul>
   );
 }

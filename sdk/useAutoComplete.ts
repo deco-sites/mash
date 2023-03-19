@@ -1,6 +1,6 @@
 import { ReadonlySignal, signal } from "@preact/signals";
 import { debounce } from "std/async/debounce.ts";
-import type { LegacyProduct } from "deco-sites/std/commerce/vtex/types.ts"
+import type { LegacyProduct } from "deco-sites/std/commerce/vtex/types.ts";
 import { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
 import { Suggestion } from "deco-sites/std/commerce/types.ts";
 import { createClient } from "deco-sites/std/commerce/vtex/client.ts";
@@ -11,9 +11,9 @@ async function vtexSearchSuggestion(
   query: string,
 ) {
   try {
-    const data: LegacyProduct[] = await client.catalog_system.products({ term: query }) ;
-
-    console.log('data', data, 'data')
+    const data: LegacyProduct[] = await client.catalog_system.products({
+      term: query,
+    });
 
     if (!data) return;
 
@@ -57,8 +57,11 @@ const setSearch = debounce(async (search: string) => {
     search,
   );
 
+  console.log(_suggestion, "_");
+  console.log(suggestions, "suggestions");
+
   setSuggestions(_suggestion);
-}, 250);
+}, 100);
 
 /**
  * This hook only works if the vtex intelligent search app is installed at VTEX Account.
@@ -70,7 +73,7 @@ export default function useAutocomplete(
     // TODO: create a singleton
     vtexClient = createClient({
       ...configVTEX,
-      baseUrl: "ttps://mash.vtexcommercestable.com.br",
+      baseUrl: "https://vtex-search-proxy.global.ssl.fastly.net/v2/mash/",
     });
   }
 

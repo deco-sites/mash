@@ -15,12 +15,20 @@ export interface BannerProps {
   };
 }
 
-function SingleBanner({ desktop, mobile, alt, action, lcp }: { desktop: LiveImage; mobile: LiveImage; alt: string; action?: { href: string; label: string; }; lcp?: boolean }) {
+function SingleBanner(
+  { desktop, mobile, alt, action, lcp }: {
+    desktop: LiveImage;
+    mobile: LiveImage;
+    alt: string;
+    action?: { href: string; label: string };
+    lcp?: boolean;
+  },
+) {
   return (
     <div class="overflow-y-hidden">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
-        <Source
+          <Source
             media="(max-width: 767px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={mobile}

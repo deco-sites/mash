@@ -33,6 +33,7 @@ const colors = {
   "ROXO": "#c62bff",
   "VERDE": "#3fb922",
   "VERMELHO": "#ff2b2b",
+  "AZUL MARINHO": "#13273d",
 };
 
 type Props =
@@ -44,7 +45,7 @@ function Avatar({ variant, content, class: _class = "", ...btnProps }: Props) {
     return (
       <button
         {...btnProps}
-        class={`border rounded-full w-6 h-6 ${_class}`}
+        class={`border  w-6 h-6 md:(w-[32px] h-[32px]) ${_class}`}
         style={{ backgroundColor: colors[content] ?? "#FFF" }}
       />
     );
@@ -54,7 +55,7 @@ function Avatar({ variant, content, class: _class = "", ...btnProps }: Props) {
     return (
       <button
         {...btnProps}
-        class={`text-caption font-caption rounded-full border border-default w-8 h-8 flex justify-center items-center hover:bg-interactive hover:border-interactive hover:text-default-inverse disabled:bg-interactive disabled:text-default-inverse disabled:border-interactive ${_class}`}
+        class={`text-caption font-caption  border border-default w-8 h-8 flex justify-center items-center hover:bg-interactive hover:border-interactive hover:text-default-inverse disabled:bg-interactive disabled:text-default-inverse disabled:border-interactive ${_class}`}
       >
         {content.substring(0, 2)}
       </button>
