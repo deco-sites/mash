@@ -33,7 +33,7 @@ function SearchLegacy(
   //TODO: Remove this later on
 
   useEffect(() => {
-    console.log("Searching...", suggestions.value?.products);
+    console.log("action", action);
   }, [suggestions.value?.products]);
 
   useEffect(() => {
@@ -55,6 +55,10 @@ function SearchLegacy(
               <ProductCard product={product} search={true} />
             </section>
           ))}
+
+          <section class="flex justify-center">
+            <a href={`${action}?q=${searchInputRef?.current?.value}`}>Ver tudo</a>
+          </section>
         </div>
       </Suspense>
     );

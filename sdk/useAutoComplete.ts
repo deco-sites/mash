@@ -61,7 +61,7 @@ const setSearch = debounce(async (search: string) => {
   console.log(suggestions, "suggestions");
 
   setSuggestions(_suggestion);
-}, 0);
+}, 100);
 
 /**
  * This hook only works if the vtex intelligent search app is installed at VTEX Account.
