@@ -7,14 +7,14 @@ import CartIcon from "$store/components/icons/CartIcon.tsx";
 import UserIcon from "$store/components/icons/UserIcon.tsx";
 
 function SearchButton() {
-  const { displayMenu } = useUI();
+  const { displaySearchbar } = useUI();
 
   return (
     <Button
       variant="icon"
       aria-label="search icon button"
       onClick={() => {
-        displayMenu.value = !displayMenu.peek();
+        displaySearchbar.value = !displaySearchbar.peek();
       }}
     >
       <SearchIcon />
@@ -67,7 +67,6 @@ function CartButton() {
 function LoginButton() {
   const { displayLogin } = useUI();
 
-  //(lfroes) TODO: CREATE LOGIN MODAL
   return (
     <Button
       variant="icon"

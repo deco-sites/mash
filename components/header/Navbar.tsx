@@ -15,14 +15,14 @@ import Searchbar, {
 
 function Navbar({ items, searchbar, logo }: {
   items: INavItem[];
-  searchbar: EditableProps;
+  searchbar: SearchbarProps;
   logo: LiveImage;
 }) {
   return (
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] w-full px-2 gap-2 `}
+        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] w-full px-2 gap-2`}
       >
         <HeaderButton variant="menu" />
 
@@ -72,14 +72,7 @@ function Navbar({ items, searchbar, logo }: {
           </div>
           <div class="flex-none w-2/3 flex items-center justify-end gap-2">
             <Searchbar {...searchbar} variant="desktop" />
-            <Button
-              as="a"
-              variant="icon"
-              href="/login"
-              aria-label="Log in"
-            >
-              <UserIcon />
-            </Button>
+            <HeaderButton variant="login" />
             <HeaderButton variant="cart" />
           </div>
         </div>

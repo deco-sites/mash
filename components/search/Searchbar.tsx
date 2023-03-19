@@ -15,6 +15,7 @@ import { useEffect, useRef } from "preact/compat";
 import Button from "$store/components/ui/Button.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import SearchIcon from "$store/components/icons/SearchIcon.tsx";
+import  useAutoComplete from "$store/sdk/useAutoComplete.ts";
 
 
 
@@ -69,7 +70,9 @@ function Searchbar({
   variant = "mobile",
 }: Props) {
   const searchInputRef = useRef<HTMLInputElement>(null);
-
+  const { setSearch, suggestions } = useAutoComplete({
+    configVTEX,
+  });
   return (
     <div class="flex flex-col p-4 md:(py-6 w-2/3) ">
       <div class="flex gap-4">
