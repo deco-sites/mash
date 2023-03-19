@@ -66,7 +66,7 @@ function ProductCard({ product, preload, search }: Props) {
         aria-label="product link"
         class={`${search ? "flex items-center" : ""}`}
       >
-        <div class="relative w-full group">
+        <div class={`relative ${search ? "" : "w-full"} group`}>
           <Image
             src={front.url!}
             alt={front.alternateName}
@@ -102,7 +102,7 @@ function ProductCard({ product, preload, search }: Props) {
         </div>
         <div class="flex flex-col gap-1 py-2">
           <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
+            class={`overflow-hidden overflow-ellipsis ${search ? "max-w-[200px]" : "whitespace-nowrap"}`}
             variant="caption"
           >
             {name}
