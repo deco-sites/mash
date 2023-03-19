@@ -16,7 +16,7 @@ function AddToCartButton({ skuId, sellerId, variant }: Props) {
   const variants = variant ?? "primary";
 
   return (
-    <Button {...props} class="w-full" variant={variants}>
+    <Button {...props} class="w-full h-[55px] bg-[#24B26D] uppercase text-white text-[18px]" variant={variants}>
       Adicionar à Sacola
     </Button>
   );
