@@ -46,7 +46,7 @@ function SectionItem({ item }: { item: Item }) {
           </div>
         )
         : (
-          <a href={item.href}>
+          <a href={item.href} class="ml-4 text-[12px]">
             {item.label}
           </a>
         )}

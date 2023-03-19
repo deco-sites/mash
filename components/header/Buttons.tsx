@@ -55,7 +55,7 @@ function CartButton() {
     >
       <CartIcon />
       {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
+        <span class="absolute text-[9px] right-0 top-3 rounded-full bg-[#DB0005] text-white w-[14px] h-[14px] flex items-center justify-center">
           {totalItems}
         </span>
       )}

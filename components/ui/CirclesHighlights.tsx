@@ -19,9 +19,11 @@ export interface Props {
 function Highlights({ highlights = [], title }: Props) {
   return (
     <section class="grid grid-cols-1 grid-rows-[48px_1fr] py-10">
-      <h2 class="ml-4 uppercase">
-        <Text variant="heading-2">{title}</Text>
-      </h2>
+      <div class="max-w-[1250px] mx-auto flex justify-start w-full">
+        <h2 class="ml-4 uppercase text-[22px] uppercase font-list-bold">
+          {title}
+        </h2>
+      </div>
 
       <Slider
         class="gap-6"
@@ -39,7 +41,7 @@ function Highlights({ highlights = [], title }: Props) {
               width={225}
               height={225}
             />
-            <Text variant="body">{label}</Text>
+            <span class="text-[.72917vw] uppercase font-heading-1">{label}</span>
           </a>
         ))}
       </Slider>
