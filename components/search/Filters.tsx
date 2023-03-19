@@ -27,7 +27,7 @@ function FilterValues({ key, values, label }: FilterToggle) {
         <p class="cursor-pointer hidden group-hover:block">-</p>
       </section>
       <ul
-        class={`md:invisible md:group-hover:visible hidden group-hover:flex md:flex border-none md:border(t-[3px] [#D9D9D9]) p-6 bg-white md:absolute z-10 flex-wrap gap-6 ${flexDirection}`}
+        class={`md:invisible md:group-hover:visible hidden group-hover:flex md:flex border-none md:border(t-[3px] [#D9D9D9]) p-6 bg-white md:absolute z-10 flex-wrap md:gap-2 md:max-w-[170px] ${flexDirection}`}
       >
         {values.map(({ label, value, url, selected }) => {
           if (key === "Cores") {
