@@ -15,9 +15,9 @@ function Item({ name, item }: { name?: string; item?: string }) {
   return (
     <li class="whitespace-nowrap overflow-hidden overflow-ellipsis">
       <a href={item} class="">
-        <Text variant="caption">
+        <span class="text(xs black)">
           {name}
-        </Text>
+        </span>
       </a>
     </li>
   );
@@ -39,14 +39,14 @@ function Breadcrumb({ itemListElement = [], itemList }: Props) {
       ))
       : items?.map((item) => (
         <>
-          <li class="mt-0.5">
+          <li class="mt-0.5 text(xs black) capitalize">
             |
           </li>
           <li class="whitespace-nowrap overflow-hidden overflow-ellipsis">
             <a href={`/${item}`} class="">
-              <Text variant="caption" class="capitalize">
+              <span class="text(xs black) capitalize">
                 {item}
-              </Text>
+              </span>
             </a>
           </li>
         </>

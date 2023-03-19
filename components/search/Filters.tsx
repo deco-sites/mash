@@ -58,7 +58,7 @@ function FilterValues({ key, values, label }: FilterToggle) {
           return (
             <a href={url} class="flex items-center gap-2">
               <input id="checkbox-filter" type="checkbox" checked={selected} class="pointer-events-none appearance-none bg-white h-[15px] w-[15px] border(1 [#EBEBEB])"/>
-              <Text variant="caption">{label}</Text>
+              <span class="text(xs black)">{label}</span>
             </a>
           );
         })}
