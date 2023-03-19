@@ -87,8 +87,9 @@ function ProductCard({ product, preload, search }: Props) {
             height={80}
             class={`rounded w-full hidden ${search ? "" : "group-hover:block"}`}
             sizes="(max-width: 640px) 50vw, 20vw"
-            preload={preload}
+            preload={false}
             decoding="async"
+            loading="lazy"
           />
           {seller && !search && (
             <div class="w-full bg-gray-500 relative">
