@@ -51,6 +51,7 @@ const buttons = [
 ] as const;
 
 const icons = [
+  "MenuOrdenar",
   "ChevronLeft",
   "ChevronRight",
   "ChevronUp",
@@ -182,9 +183,6 @@ function DesignSystem() {
         <div class="flex gap-2">
           <Avatar variant="abbreviation" content="PP" />
           <Avatar variant="abbreviation" content="PP" disabled />
-          <Avatar variant="color" content="azul-clara" />
-          <Avatar variant="color" content="branca" />
-          <Avatar variant="color" content="cinza-escura" />
         </div>
       </DesignSystemItem>
 

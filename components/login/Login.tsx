@@ -38,7 +38,10 @@ function Login() {
                 class="border-2 py-2 px-4 focus:outline-none w-full"
               />
             </form>
-            <button class="bg-black text-white w-full py-2 px-10 focus:outline-none" type="submit">
+            <button
+              class="bg-black text-white w-full py-2 px-10 focus:outline-none"
+              type="submit"
+            >
               <span class="text-white uppercase font-bold text-sm">
                 Entrar
               </span>

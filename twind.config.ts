@@ -6,7 +6,6 @@
  */
 import type { Options } from "$fresh/plugins/twind.ts";
 
-
 const gridCols = ([arg]: string[]) => {
   const template = Number.isInteger(Number(arg))
     ? `repeat(${arg}, minmax(0, 1fr))`
@@ -87,7 +86,8 @@ const options: Omit<Options, "selfURL"> = {
         "body": "400",
         "caption": "400",
         "list-price": "400",
-        "important": "800"
+        "important": "800",
+        "list-bold": "600",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

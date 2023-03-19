@@ -69,23 +69,29 @@ function CardFooter(
     card: CardFooter;
   },
 ) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>
-    <Text variant="body" tone="default-inverse" class="text([#000] xs) font-semibold">
-      {card.title}
-    </Text>
-    <Text variant="body" tone="default-inverse" class="text([#000] xs)">
-      {card.text}
-    </Text>
-  </div>;
+  return (
+    <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>
+      <Text
+        variant="body"
+        tone="default-inverse"
+        class="text([#000] xs) font-semibold"
+      >
+        {card.title}
+      </Text>
+      <Text variant="body" tone="default-inverse" class="text([#000] xs)">
+        {card.text}
+      </Text>
+    </div>
+  );
 }
 
 export interface Link {
   image: {
-      src: LiveImage;
-      alt: string;
-      width: number;
-      height: number;
-  }
+    src: LiveImage;
+    alt: string;
+    width: number;
+    height: number;
+  };
   href: string;
 }
 
@@ -101,28 +107,49 @@ export interface Props {
   text: string;
 }
 
-function Footer({ sections = [], cardsFooter = [], links = [], flags = [], flagsTS = [], TextNewsletter, titlePaymentFlags, titleSegurityTechFlags, text}: Props) {
+function Footer(
+  {
+    sections = [],
+    cardsFooter = [],
+    links = [],
+    flags = [],
+    flagsTS = [],
+    TextNewsletter,
+    titlePaymentFlags,
+    titleSegurityTechFlags,
+    text,
+  }: Props,
+) {
   return (
     <footer class="w-full bg-footer flex flex-col">
       <div>
-          <Newsletter text={TextNewsletter}/>
+        <Newsletter text={TextNewsletter} />
 
-          <FooterContainer>
-            <section class="flex justify-between max-w-[950px] mx-auto flex-wrap">
-              {cardsFooter.map((card) => <CardFooter class="flex flex-col gap-[11px] w-[440px]" card={card}/>)}
-            </section>
-          </FooterContainer>
+        <FooterContainer>
+          <section class="flex justify-between max-w-[950px] mx-auto flex-wrap">
+            {cardsFooter.map((card) => (
+              <CardFooter
+                class="flex flex-col gap-[11px] w-[440px]"
+                card={card}
+              />
+            ))}
+          </section>
+        </FooterContainer>
 
-          <SocialFooter links={links}/>
+        <SocialFooter links={links} />
 
-          <FooterContainer>
-            {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row justify-between max-w-[1205px] mx-auto">
-              <section class="flex justify-evenly w-full">
+        <FooterContainer>
+          {/* Desktop view */}
+          <ul class="hidden sm:flex flex-row justify-between max-w-[1205px] mx-auto">
+            <section class="flex justify-evenly w-full">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" tone="default-inverse" class="text-black">
+                    <Text
+                      variant="heading-3"
+                      tone="default-inverse"
+                      class="text-black"
+                    >
                       {section.label}
                     </Text>
 
@@ -140,56 +167,65 @@ function Footer({ sections = [], cardsFooter = [], links = [], flags = [], flags
                   </div>
                 </li>
               ))}
-              </section>
-              <section class="max-w-[300px] w-full flex flex-col gap-10">
-                <PaymentFlags flags={flags} title={titlePaymentFlags} />
-                <SegurtyTechFlags flags={flagsTS} title={titleSegurityTechFlags} />
-              </section>
-            </ul>
+            </section>
+            <section class="max-w-[300px] w-full flex flex-col gap-10">
+              <PaymentFlags flags={flags} title={titlePaymentFlags} />
+              <SegurtyTechFlags
+                flags={flagsTS}
+                title={titleSegurityTechFlags}
+              />
+            </section>
+          </ul>
 
-            {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
-                <li>
-                  <Text variant="body" tone="default-inverse" class="text-black">
-                    <details id="summary-details">
-                      <summary id="summary-menu" class="w-full px-[10px] flex justify-between">
-                        {section.label}
-                      </summary>
+          {/* Mobile view */}
+          <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
+            {sections.map((section) => (
+              <li>
+                <Text variant="body" tone="default-inverse" class="text-black">
+                  <details id="summary-details">
+                    <summary
+                      id="summary-menu"
+                      class="w-full px-[10px] flex justify-between"
+                    >
+                      {section.label}
+                    </summary>
 
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
-                          <li>
-                            <SectionItem item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  </Text>
-                </li>
-              ))}
-              <section class="w-full flex flex-col gap-10">
-                <PaymentFlags flags={flags} title={titlePaymentFlags} />
-                <SegurtyTechFlags flags={flagsTS} title={titleSegurityTechFlags} />
-              </section>
-            </ul>
-          </FooterContainer>
+                    <ul
+                      class={`flex ${
+                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                      } gap-2 px-2 pt-2`}
+                    >
+                      {section.children.map((item) => (
+                        <li>
+                          <SectionItem item={item} />
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                </Text>
+              </li>
+            ))}
+            <section class="w-full flex flex-col gap-10">
+              <PaymentFlags flags={flags} title={titlePaymentFlags} />
+              <SegurtyTechFlags
+                flags={flagsTS}
+                title={titleSegurityTechFlags}
+              />
+            </section>
+          </ul>
+        </FooterContainer>
       </div>
 
       <div>
-          <FooterContainer class="max-w-[1205px] mx-auto py-[20px]">
-            <Text
-              class="flex items-center gap-1 text(black [8px]) leading-[16px]"
-              variant="body"
-              tone="default-inverse"
-            >
-              {text}
-            </Text>
-          </FooterContainer>
+        <FooterContainer class="max-w-[1205px] mx-auto py-[20px]">
+          <Text
+            class="flex items-center gap-1 text(black [8px]) leading-[16px]"
+            variant="body"
+            tone="default-inverse"
+          >
+            {text}
+          </Text>
+        </FooterContainer>
       </div>
     </footer>
   );
