@@ -48,7 +48,6 @@ function Details({ page }: { page: ProductDetailsPage }) {
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
   const [image, setImage] = useState(front);
-  console.log(product, "product")
   
 
   return (
