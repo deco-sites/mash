@@ -22,36 +22,47 @@ function Controls({ page }: { page: ProductListingPage }) {
   const filters = page?.filters;
   const breadcrumb = page?.breadcrumb;
   const itemsList = window?.location?.pathname;
+  const pageTitle = itemsList?.replaceAll("/", " ");
 
   return (
-    <Container class="flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 sm:flex-row sm:h-[53px] md:border-b-1">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} itemList={itemsList} />
-      </div>
-      <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
-        <Button
-          variant="tertiary"
-          onClick={() => {
-            open.value = true;
-          }}
-        >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
-        </Button>
-        <Sort />
-      </div>
-
-      <Modal
-        title="Filtrar"
-        mode="sidebar-right"
-        open={open.value}
-        onClose={() => {
-          open.value = false;
-        }}
-      >
-        <Filters filters={filters} />
-      </Modal>
-    </Container>
+    <section class="w-full md:h-[112px] md:border-y-1">
+        <section class="max-w-[1280px] h-full mx-auto flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 sm:flex-row">
+        <section class="w-full">
+          <div class="flex flex-row items-center sm:p-0">
+            <Breadcrumb itemListElement={breadcrumb?.itemListElement} itemList={itemsList} />
+          </div>
+          <span class="block md:hidden  uppercase text([18px] black) mt-[15px] mr-[5px] font-semibold">{pageTitle}</span>
+          <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
+            <section class="block lg:hidden">
+              <Button
+                variant="tertiary"
+                onClick={() => {
+                  open.value = true;
+                }}
+              >
+                <Icon id="FilterList" width={16} height={16} />
+                Filtrar
+              </Button>
+            </section>
+            <section class="hidden lg:flex w-[fit-content] items-center">
+              <span class="uppercase text([18px] black) mr-[5px] font-semibold">{pageTitle}</span>
+              <Filters filters={filters} />
+            </section>
+            <Sort />
+          </div>
+          <Modal
+            title="Filtrar"
+            mode="sidebar-right"
+            open={open.value}
+            onClose={() => {
+              open.value = false;
+            }}
+          >
+            <Filters filters={filters} />
+          </Modal>
+        </section>
+      </section>
+    </section>
   );
 }
 

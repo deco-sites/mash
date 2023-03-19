@@ -25,7 +25,6 @@ function Item({ name, item }: { name?: string; item?: string }) {
 
 function Breadcrumb({ itemListElement = [], itemList }: Props) {
   const items = itemList?.split("/").filter((item) => item !== "");
-  console.log("items", items)
 
   return (
     <ul class="flex flex-row gap-2 items-center w-full">

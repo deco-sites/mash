@@ -22,16 +22,17 @@ interface Idempotent {
 }
 
 const colors = {
-  "azul-clara": "#87CEFA",
-  "azul-marinho": "#000080",
-  "branca": "#FFFFFF",
-  "cinza": "#808080",
-  "cinza-escura": "#A9A9A9",
-  "laranja": "#FFA500",
-  "marrom": "#A52A2A",
-  "preta": "#161616",
-  "verde-clara": "#90EE90",
-  "vermelha": "#FF0000",
+  "AMARELO": "#f5ff00",
+  "AZUL": "#104ae6",
+  "BRANCO": "#FFFFFF",
+  "CAQUI": "#e7d749",
+  "CINZA": "#dbdbdb",
+  "MISTO": "#c1c8cece",
+  "ROSA": "#ffcbdb",
+  "PRETO": "#000",
+  "ROXO": "#c62bff",
+  "VERDE": "#3fb922",
+  "VERMELHO": "#ff2b2b",
 };
 
 type Props =
@@ -43,7 +44,7 @@ function Avatar({ variant, content, class: _class = "", ...btnProps }: Props) {
     return (
       <button
         {...btnProps}
-        class={`rounded-full border border-default w-8 h-8 ${_class}`}
+        class={`border rounded-full w-6 h-6 ${_class}`}
         style={{ backgroundColor: colors[content] ?? "#FFF" }}
       />
     );

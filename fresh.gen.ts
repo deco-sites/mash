@@ -378,6 +378,10 @@ const manifest: DecoManifest = {
                   "anyOf": [
                     {
                       "type": "string",
+                      "const": "MenuOrdenar",
+                    },
+                    {
+                      "type": "string",
                       "const": "ChevronLeft",
                     },
                     {
@@ -579,6 +583,10 @@ const manifest: DecoManifest = {
                           "icon": {
                             "type": "string",
                             "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "MenuOrdenar",
+                              },
                               {
                                 "type": "string",
                                 "const": "ChevronLeft",

@@ -51,6 +51,7 @@ const buttons = [
 ] as const;
 
 const icons = [
+  "MenuOrdenar",
   "ChevronLeft",
   "ChevronRight",
   "ChevronUp",
